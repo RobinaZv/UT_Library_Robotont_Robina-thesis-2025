@@ -1,0 +1,3 @@
+[submodule "robotont/robotont_msgs"]
+	path = robotont/robotont_msgs
+	url = https://github.com/robotont/robotont_msgs.git
