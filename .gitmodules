@@ -7,3 +7,6 @@
 [submodule "robotont/robotont_driver"]
 	path = robotont/robotont_driver
 	url = https://github.com/robotont/robotont_driver.git
+[submodule "sllidar_ros2"]
+	path = sllidar_ros2
+	url = https://github.com/Slamtec/sllidar_ros2.git
