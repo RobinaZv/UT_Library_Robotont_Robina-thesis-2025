@@ -1,0 +1,401 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tutorials &mdash; Metratec RFID 1.3.2 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=8ca9e7a0"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="API" href="api/api.html" />
+    <link rel="prev" title="Quickstart" href="quickstart.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Metratec RFID
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="foreword.html">Foreword</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quickstart</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#transponder-tag-classes">Transponder/Tag Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#continuous-inventory">Continuous Inventory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#event-handling">Event Handling</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#status-events">Status Events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#inventory-events">Inventory Events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#input-events">Input Events</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#error-handling">Error Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#reader-settings">Reader Settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#read-write-tag-data">Read/Write Tag Data</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#uhf-reader">UHF Reader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#hf-reader">HF Reader</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#complete-example-uhf-reader">Complete Example (UHF Reader)</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api/api.html">API</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Metratec RFID</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Tutorials</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/tutorials.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="tutorials">
+<span id="id1"></span><h1>Tutorials<a class="headerlink" href="#tutorials" title="Link to this heading"></a></h1>
+<p>This section provides tutorials for various parts of the library.</p>
+<section id="transponder-tag-classes">
+<h2>Transponder/Tag Classes<a class="headerlink" href="#transponder-tag-classes" title="Link to this heading"></a></h2>
+<p>Reader functions that operate on tags usually return a list of
+<a class="reference internal" href="api/transponder.html#transponder"><span class="std std-ref">Tag</span></a> objects.
+These objects contain all available data of each individual transponder
+and information about the command execution.</p>
+</section>
+<section id="continuous-inventory">
+<h2>Continuous Inventory<a class="headerlink" href="#continuous-inventory" title="Link to this heading"></a></h2>
+<p>As shown in the <a class="reference internal" href="quickstart.html#quickstart"><span class="std std-ref">Minimal Example</span></a>, you can perform a single
+inventory scan with <cite>get_inventory()</cite>.
+If you want to set the reader into a continuous scanning mode instead,
+you can use <cite>start_inventory()</cite> method.
+To stop the scan, call the <cite>stop_inventory()</cite> method.</p>
+<p>The inventory results are collected by a background task and the transponders
+that have been found can be fetched with <cite>fetch_inventory()</cite>.</p>
+<p>Here is a code example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">async</span> <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="c1"># Create a reader instance and connect.</span>
+    <span class="n">reader</span> <span class="o">=</span> <span class="n">DeskIdIso</span><span class="p">(</span><span class="s2">&quot;reader01&quot;</span><span class="p">,</span> <span class="s2">&quot;COM1&quot;</span><span class="p">)</span>
+    <span class="k">await</span> <span class="n">reader</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span>
+    <span class="c1"># Start a continuous inventory.</span>
+    <span class="c1"># The results will be stored by another task.</span>
+    <span class="k">await</span> <span class="n">reader</span><span class="o">.</span><span class="n">start_inventory</span><span class="p">()</span>
+    <span class="c1"># Let the inventory run for 10 seconds and query results every 2s.</span>
+    <span class="n">end_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">+</span> <span class="mf">10.0</span>
+    <span class="k">while</span> <span class="n">end_time</span> <span class="o">&gt;</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">():</span>
+        <span class="c1"># Let the main task wait while continuous inventory is running.</span>
+        <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">2.0</span><span class="p">)</span>
+        <span class="c1"># Fetch and print new inventory data.</span>
+        <span class="n">inv</span> <span class="o">=</span> <span class="k">await</span> <span class="n">reader</span><span class="o">.</span><span class="n">fetch_inventory</span><span class="p">()</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;New inventory: </span><span class="si">{</span><span class="n">inv</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="c1"># Stop the continuous inventory operation and shut down.</span>
+    <span class="k">await</span> <span class="n">reader</span><span class="o">.</span><span class="n">stop_inventory</span><span class="p">()</span>
+    <span class="k">await</span> <span class="n">reader</span><span class="o">.</span><span class="n">disconnect</span><span class="p">()</span>
+
+<span class="n">asyncio</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">main</span><span class="p">())</span>
+</pre></div>
+</div>
+<p>If you do not want to fetch the inventory yourself, you can register an
+inventory callback that will be invoked when new transponders are found.
+See section <a class="reference internal" href="#inventory-events">Inventory Events</a>.</p>
+</section>
+<section id="event-handling">
+<h2>Event Handling<a class="headerlink" href="#event-handling" title="Link to this heading"></a></h2>
+<section id="status-events">
+<h3>Status Events<a class="headerlink" href="#status-events" title="Link to this heading"></a></h3>
+<p>The reader class can trigger events when its internal status changes,
+for example after a call to <cite>connect()</cite>.
+To subscribe to the events, a callback for the status must be set.
+The callback parameter is a status dictionary which contains the following keys.</p>
+<ul class="simple">
+<li><p>instance (str): Name of the reader.</p></li>
+<li><p>status (int): Reader status enum (RUNNING = 1, BUSY = 0,
+ERROR = -1, WARNING = -2).</p></li>
+<li><p>message (str): Status message.</p></li>
+<li><p>timestamp (float): Timestamp of the last status change.</p></li>
+</ul>
+<p>Here is a code example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">reader_status_changed</span><span class="p">(</span><span class="n">status</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The status of Reader </span><span class="si">{</span><span class="n">status</span><span class="p">[</span><span class="s1">&#39;instance&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> has changed to </span><span class="si">{</span><span class="n">status</span><span class="p">[</span><span class="s1">&#39;message&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="k">async</span> <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="n">reader</span> <span class="o">=</span> <span class="n">DeskIdIso</span><span class="p">(</span><span class="s2">&quot;reader01&quot;</span><span class="p">,</span> <span class="s2">&quot;COM1&quot;</span><span class="p">)</span>
+    <span class="n">reader</span><span class="o">.</span><span class="n">set_cb_status</span><span class="p">(</span><span class="n">reader_status_changed</span><span class="p">)</span>
+
+    <span class="k">await</span> <span class="n">reader</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span>
+    <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">1.0</span><span class="p">)</span>
+    <span class="k">await</span> <span class="n">reader</span><span class="o">.</span><span class="n">disconnect</span><span class="p">()</span>
+
+<span class="n">asyncio</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">main</span><span class="p">())</span>
+</pre></div>
+</div>
+<p>Alternatively, you can query the reader status at any point with its
+<cite>get_status()</cite> method.</p>
+</section>
+<section id="inventory-events">
+<h3>Inventory Events<a class="headerlink" href="#inventory-events" title="Link to this heading"></a></h3>
+<p>Whenever a new inventory result is available, the transponders that have
+been found are reported via an event.</p>
+<p>To subscribe to the events, set the callback for inventories with the
+<cite>set_cb_inventory()</cite> method. The callback parameter is a list of transponders.</p>
+<p>Here is a code example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">new_inventory</span><span class="p">(</span><span class="n">inventory</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">tag</span> <span class="ow">in</span> <span class="n">inventory</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Tag found: </span><span class="si">{</span><span class="n">tag</span><span class="o">.</span><span class="n">get_id</span><span class="p">()</span><span class="s2">&quot;)</span>
+
+<span class="k">async</span> <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="n">reader</span> <span class="o">=</span> <span class="n">DeskIdIso</span><span class="p">(</span><span class="s2">&quot;reader01&quot;</span><span class="p">,</span> <span class="s2">&quot;/dev/serial0&quot;</span><span class="p">)</span>
+    <span class="n">reader</span><span class="o">.</span><span class="n">set_cb_inventory</span><span class="p">(</span><span class="n">new_inventory</span><span class="p">)</span>
+
+    <span class="k">await</span> <span class="n">reader</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span>
+    <span class="k">await</span> <span class="n">reader</span><span class="o">.</span><span class="n">start_inventory</span><span class="p">()</span>
+    <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">5.0</span><span class="p">)</span>
+    <span class="k">await</span> <span class="n">reader</span><span class="o">.</span><span class="n">stop_inventory</span><span class="p">()</span>
+    <span class="k">await</span> <span class="n">reader</span><span class="o">.</span><span class="n">disconnect</span><span class="p">()</span>
+
+<span class="n">asyncio</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">main</span><span class="p">())</span>
+</pre></div>
+</div>
+</section>
+<section id="input-events">
+<h3>Input Events<a class="headerlink" href="#input-events" title="Link to this heading"></a></h3>
+<p>Some readers, such as the PulsarLR, have physical input pins.
+To be notified about state changes, set a callback and enable input events.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">input_changed</span><span class="p">(</span><span class="n">pin</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="nb">bool</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Pin </span><span class="si">{</span><span class="n">pin</span><span class="si">}</span><span class="s2"> changed to </span><span class="si">{</span><span class="n">value</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="k">async</span> <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="n">reader</span> <span class="o">=</span> <span class="n">PulsarLR</span><span class="p">(</span><span class="s2">&quot;reader01&quot;</span><span class="p">,</span> <span class="s2">&quot;192.168.2.153&quot;</span><span class="p">)</span>
+    <span class="n">reader</span><span class="o">.</span><span class="n">set_cb_input_changed</span><span class="p">(</span><span class="n">input_changed</span><span class="p">)</span>
+    <span class="k">await</span> <span class="n">reader</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span>
+    <span class="k">await</span> <span class="n">reader</span><span class="o">.</span><span class="n">enable_input_events</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+    <span class="c1"># ...</span>
+
+<span class="n">asyncio</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">main</span><span class="p">())</span>
+</pre></div>
+</div>
+<p>Pin states can also be queried on demand with the <cite>get_input()</cite> method.</p>
+</section>
+</section>
+<section id="error-handling">
+<h2>Error Handling<a class="headerlink" href="#error-handling" title="Link to this heading"></a></h2>
+<p>Most reader methods raise the libraries <cite>RfidReaderException</cite> if an
+error occurs.
+Therefore it is recommended wrap calls to reader functions in a
+try-except block to handle any errors.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
+    <span class="k">await</span> <span class="n">reader</span><span class="o">.</span><span class="n">get_inventory</span><span class="p">()</span>
+<span class="k">except</span> <span class="n">RfidReaderException</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Reader exception: </span><span class="si">{</span><span class="n">err</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="reader-settings">
+<h2>Reader Settings<a class="headerlink" href="#reader-settings" title="Link to this heading"></a></h2>
+<p>The readers can be configured in various ways.
+Especially the UHF readers offer a lot of customization options.
+The available methods and options vary a lot between different devices.
+Again, reference the <a class="reference internal" href="api/api.html#api"><span class="std std-ref">API</span></a> for details.</p>
+<p>Here are some example functions that the reader class provide:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set the power level for inventories and other RF operations.</span>
+<span class="n">reader</span><span class="o">.</span><span class="n">set_power</span><span class="p">(</span><span class="mi">750</span><span class="p">)</span>  <span class="c1"># mW for legacy HF readers</span>
+<span class="n">reader</span><span class="o">.</span><span class="n">set_power</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span>  <span class="c1"># dBm for others</span>
+
+<span class="c1"># Only readers with multiple antenna ports support switching antennas.</span>
+<span class="n">reader</span><span class="o">.</span><span class="n">set_antenna</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="c1"># This will cause tags to only respond once during an inventory run.</span>
+<span class="n">reader</span><span class="o">.</span><span class="n">set_inventory_settings</span><span class="p">(</span><span class="n">only_new_tags</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># UHF readers can automatically filter tag populations by masking.</span>
+<span class="n">reader</span><span class="o">.</span><span class="n">set_mask</span><span class="p">(</span><span class="s2">&quot;ABCD0123&quot;</span><span class="p">,</span> <span class="n">memory</span><span class="o">=</span><span class="s2">&quot;EPC&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="read-write-tag-data">
+<h2>Read/Write Tag Data<a class="headerlink" href="#read-write-tag-data" title="Link to this heading"></a></h2>
+<section id="uhf-reader">
+<h3>UHF Reader<a class="headerlink" href="#uhf-reader" title="Link to this heading"></a></h3>
+<p>There are many functions to read and write various data of a transponder.
+Take a look at the <a class="reference internal" href="api/api.html#api"><span class="std std-ref">API</span></a> section for a complete list.
+Similar to inventories, these functions return a list of tag objects that
+contain different information about the transponder, depending on
+the executed command.</p>
+<p>For instance, here is an example that reads the first 4 bytes of the
+tag ID and prints it on success.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">response</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">UhfTag</span><span class="p">]</span> <span class="o">=</span> <span class="k">await</span> <span class="n">reader</span><span class="o">.</span><span class="n">read_tag_tid</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">length</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">tag</span> <span class="ow">in</span> <span class="n">response</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">tag</span><span class="o">.</span><span class="n">has_error</span><span class="p">():</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;EPC: </span><span class="si">{</span><span class="n">tag</span><span class="o">.</span><span class="n">get_epc</span><span class="p">()</span><span class="si">}</span><span class="s1">, Error: </span><span class="si">{</span><span class="n">tag</span><span class="o">.</span><span class="n">get_error_message</span><span class="p">()</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;EPC: </span><span class="si">{</span><span class="n">tag</span><span class="o">.</span><span class="n">get_epc</span><span class="p">()</span><span class="si">}</span><span class="s1">, TID: </span><span class="si">{</span><span class="n">tag</span><span class="o">.</span><span class="n">get_tid</span><span class="p">()</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The <cite>write_tag_epc()</cite> method allows you to change a transponders EPC.
+The transponder to modify is specified by its tag ID in order to ensure
+that only the correct tag is changed, should more than one tag be in range.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tag_id</span> <span class="o">=</span> <span class="s2">&quot;E2804704&quot;</span>
+<span class="n">new_epc</span> <span class="o">=</span> <span class="s2">&quot;12345678&quot;</span>
+<span class="n">response</span> <span class="o">=</span> <span class="k">await</span> <span class="n">reader</span><span class="o">.</span><span class="n">write_tag_epc</span><span class="p">(</span><span class="n">tag_id</span><span class="p">,</span> <span class="n">new_epc</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">tag</span> <span class="ow">in</span> <span class="n">response</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">tag</span><span class="o">.</span><span class="n">has_error</span><span class="p">():</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;EPC: </span><span class="si">{</span><span class="n">tag</span><span class="o">.</span><span class="n">get_epc</span><span class="p">()</span><span class="si">}</span><span class="s1">, Error: </span><span class="si">{</span><span class="n">tag</span><span class="o">.</span><span class="n">get_error_message</span><span class="p">()</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;EPC: </span><span class="si">{</span><span class="n">tag</span><span class="o">.</span><span class="n">get_epc</span><span class="p">()</span><span class="si">}</span><span class="s1">, Success&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="hf-reader">
+<h3>HF Reader<a class="headerlink" href="#hf-reader" title="Link to this heading"></a></h3>
+<p>HF readers use slightly different methods to read and write data.
+Here are examples for reading tag data with different HF readers.
+Look at the <a class="reference internal" href="api/api.html#api"><span class="std std-ref">API</span></a> section for details about each reader.</p>
+<p>Legacy readers (e.g. <a class="reference internal" href="api/hf_reader/deskid_iso.html#deskidiso"><span class="std std-ref">DeskID ISO</span></a>, <a class="reference internal" href="api/hf_reader/quasar_lr.html#quasarlr"><span class="std std-ref">QuasarLR</span></a>
+and <a class="reference internal" href="api/hf_reader/quasar_mx.html#quasarmx"><span class="std std-ref">QuasarMX</span></a>) use the <cite>read_tag_data()</cite> function to read
+individual blocks of data.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">block_number</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">reader</span><span class="o">.</span><span class="n">read_tag_data</span><span class="p">(</span><span class="n">block_number</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Newer NFC readers (e.g. <a class="reference internal" href="api/hf_reader/deskid_nfc.html#deskidnfc"><span class="std std-ref">DeskID NFC</span></a> and <a class="reference internal" href="api/hf_reader/qr_nfc.html#qrnfc"><span class="std std-ref">QR-NFC</span></a>)
+use the <cite>read_data()</cite> function instead and allow you to read multiple
+blocks at once.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">start_block</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">reader</span><span class="o">.</span><span class="n">read_data</span><span class="p">(</span><span class="n">start_block</span><span class="p">,</span> <span class="n">number_of_blocks</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="complete-example-uhf-reader">
+<h2>Complete Example (UHF Reader)<a class="headerlink" href="#complete-example-uhf-reader" title="Link to this heading"></a></h2>
+<p>Here is a complete code example that implements many of the reader
+features at once.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">asyncio</span>
+
+<span class="kn">from</span> <span class="nn">metratec_rfid</span> <span class="kn">import</span> <span class="n">PulsarLR</span>
+<span class="kn">from</span> <span class="nn">metratec_rfid</span> <span class="kn">import</span> <span class="n">RfidReaderException</span>
+
+
+<span class="k">def</span> <span class="nf">print_tags</span><span class="p">(</span><span class="n">tag_list</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Inventories return a list of Tag objects.</span>
+<span class="sd">    This function prints each individual tag to the console.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;New inventory:&quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">tag</span> <span class="ow">in</span> <span class="n">tag_list</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">tag</span><span class="p">)</span>
+
+
+<span class="k">async</span> <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="c1"># Create an instance and define the connection.</span>
+    <span class="n">reader</span> <span class="o">=</span> <span class="n">PulsarLR</span><span class="p">(</span><span class="n">instance</span><span class="o">=</span><span class="s2">&quot;Reader&quot;</span><span class="p">,</span> <span class="n">hostname</span><span class="o">=</span><span class="s2">&quot;192.168.2.239&quot;</span><span class="p">)</span>
+    <span class="c1"># Set a callback for reader status changes.</span>
+    <span class="n">reader</span><span class="o">.</span><span class="n">set_cb_status</span><span class="p">(</span><span class="k">lambda</span> <span class="n">status</span><span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Status changed: </span><span class="si">{</span><span class="n">status</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">))</span>
+    <span class="c1"># Set a callback for new inventories.</span>
+    <span class="n">reader</span><span class="o">.</span><span class="n">set_cb_inventory</span><span class="p">(</span><span class="n">print_tags</span><span class="p">))</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="c1"># Connect the reader.</span>
+        <span class="k">await</span> <span class="n">reader</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span>
+        <span class="c1"># Modify the output power.</span>
+        <span class="k">await</span> <span class="n">reader</span><span class="o">.</span><span class="n">set_power</span><span class="p">(</span><span class="mi">17</span><span class="p">)</span>
+        <span class="c1"># Start a continuous inventory for 10 seconds.</span>
+        <span class="k">await</span> <span class="n">reader</span><span class="o">.</span><span class="n">start_inventory</span><span class="p">()</span>
+        <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+        <span class="k">await</span> <span class="n">reader</span><span class="o">.</span><span class="n">stop_inventory</span><span class="p">()</span>
+    <span class="k">except</span> <span class="n">RfidReaderException</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Reader exception: </span><span class="si">{</span><span class="n">err</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">finally</span><span class="p">:</span>
+        <span class="c1"># Disconnect the reader for clean shutdown.</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">await</span> <span class="n">reader</span><span class="o">.</span><span class="n">disconnect</span><span class="p">()</span>
+        <span class="k">except</span> <span class="n">RfidReaderException</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Disconnect error: </span><span class="si">{</span><span class="n">err</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">asyncio</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">main</span><span class="p">())</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="quickstart.html" class="btn btn-neutral float-left" title="Quickstart" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="api/api.html" class="btn btn-neutral float-right" title="API" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Metratec GmbH.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

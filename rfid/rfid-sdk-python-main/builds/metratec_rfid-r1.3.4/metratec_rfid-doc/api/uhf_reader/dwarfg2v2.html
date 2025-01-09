@@ -1,0 +1,1784 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DwarfG2 v2 UHF RFID OEM Module &mdash; Metratec RFID 1.3.2 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=8ca9e7a0"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="PLRM UHF RFID Reader" href="plrm.html" />
+    <link rel="prev" title="QRG2 UHF RFID Embedded Module" href="qrg2.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Metratec RFID
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../foreword.html">Foreword</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quickstart.html">Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials.html">Tutorials</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../api.html">API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../hf_reader/hf_reader.html">HF Reader</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="uhf_reader.html">UHF Reader</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="deskid.html">DeskID UHF Desktop Reader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="deskidv2.html">DeskID UHF v2 Desktop Reader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pulsar_lr.html">PulsarLR UHF RFID Reader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pulsar_mx.html">PulsarMX UHF RFID Reader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="qrg2.html">QRG2 UHF RFID Embedded Module</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">DwarfG2 v2 UHF RFID OEM Module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#standard-version">Standard version</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mini-version">Mini version</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#xr-version">XR version</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="plrm.html">PLRM UHF RFID Reader</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../transponder.html">Transponder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../utils.html">Utilities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../connection.html">Connection</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../changelog.html">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../license.html">License</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Metratec RFID</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../api.html">API</a></li>
+          <li class="breadcrumb-item"><a href="uhf_reader.html">UHF Reader</a></li>
+      <li class="breadcrumb-item active">DwarfG2 v2 UHF RFID OEM Module</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/api/uhf_reader/dwarfg2v2.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="dwarfg2-v2-uhf-rfid-oem-module">
+<span id="dwarfg2v2"></span><h1>DwarfG2 v2 UHF RFID OEM Module<a class="headerlink" href="#dwarfg2-v2-uhf-rfid-oem-module" title="Link to this heading"></a></h1>
+<a class="reference internal image-reference" href="../../_images/DwarfG2_v2.png"><img alt="dwarfg2_v2" class="align-right" src="../../_images/DwarfG2_v2.png" style="width: 200.0px; height: 147.5px;" />
+</a>
+<p>Based on the Impinj E310 frontend IC, this module delivers great performance
+in a small package and without measurable heat development.
+Bringing UHF RFID functionality into your embedded device has never been easier.</p>
+<p>Supports all the latest EPC Gen2 v2 features as well as propriety Impinj
+tag features like FastID and TagFocus. Thanks to the wide operating frequency
+range, the same module can be used worldwide.</p>
+<section id="standard-version">
+<h2>Standard version<a class="headerlink" href="#standard-version" title="Link to this heading"></a></h2>
+<p>Read modern UHF transponders with up to 21 dBm and 1.5 m range.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="metratec_rfid.DwarfG2v2">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">metratec_rfid.</span></span><span class="sig-name descname"><span class="pre">DwarfG2v2</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">instance</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">serial_port</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#metratec_rfid.DwarfG2v2" title="Link to this definition"></a></dt>
+<dd><p>Metratec DwarfG2 v2 class</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="metratec_rfid.DwarfG2v2.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">instance</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">serial_port</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#metratec_rfid.DwarfG2v2.__init__" title="Link to this definition"></a></dt>
+<dd><p>Create a new DwarfG2 v2 object.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>instance</strong> (<em>str</em>) – The reader name. This is purely for
+identification within the software and can be anything,
+even an empty string.</p></li>
+<li><p><strong>serial_port</strong> (<em>str</em>) – The serial port to use. Leave empty (<cite>“”</cite>)
+to determine automatically during <cite>connect()</cite>.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="metratec_rfid.DwarfG2v2.activate_protected_mode">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">activate_protected_mode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">password</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../transponder.html#metratec_rfid.UhfTag" title="metratec_rfid.uhf_tag.UhfTag"><span class="pre">UhfTag</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#metratec_rfid.DwarfG2v2.activate_protected_mode" title="Link to this definition"></a></dt>
+<dd><p>Activate a tags protected mode.</p>
+<p>Activate a tags protected mode which will make the tag untraceable
+and hide it from inventories. It requires a single tag to
+respond to inventory and the tag must have a non-zero lock password.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>password</strong> (<em>str</em>) – The access password (32 bit / 8 hex digits)</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>List with handled tag. If the tag has an
+error, the action was not successful.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>List[<a class="reference internal" href="../transponder.html#metratec_rfid.UhfTag" title="metratec_rfid.UhfTag">UhfTag</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="metratec_rfid.DwarfG2v2.activate_short_range_mode">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">activate_short_range_mode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">password</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../transponder.html#metratec_rfid.UhfTag" title="metratec_rfid.uhf_tag.UhfTag"><span class="pre">UhfTag</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#metratec_rfid.DwarfG2v2.activate_short_range_mode" title="Link to this definition"></a></dt>
+<dd><p>Activate a tags short range mode.</p>
+<p>Activate a tags short range mode which will drastically reduce
+the range at which the tag will respond. It requires a single
+tag to respond to inventory and the tag must have a non-zero
+lock password.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>password</strong> (<em>str</em>) – The access password (32 bit / 8 hex digits)</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>List with handled tag. If the tag has an
+error, the action was not successful.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>List[<a class="reference internal" href="../transponder.html#metratec_rfid.UhfTag" title="metratec_rfid.UhfTag">UhfTag</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="metratec_rfid.DwarfG2v2.call_impinj_authentication_service">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">call_impinj_authentication_service</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#metratec_rfid.DwarfG2v2.call_impinj_authentication_service" title="Link to this definition"></a></dt>
+<dd><p>Run the Impinj Authentication Service.</p>
+<p>This command talks to an Impinj M775 tag using the proprietary
+authentication command. It sends a random challenge to the
+transponder and gets the authentication payload in return. You
+can use this to check the authenticity of the transponder with
+Impinj Authentication Service. For further details, please
+contact Impinj directly.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>RfidReaderException</strong> – If an error occurs.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A list with the transponders. The
+transponders dictionaries contain the keys ‘epc’,
+‘has_error’, ‘short_tid’, ‘response’ and ‘challenge’.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>List[Dict[str, Any]]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="metratec_rfid.DwarfG2v2.connect">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">connect</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">5.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">port_re</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'USB'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#metratec_rfid.DwarfG2v2.connect" title="Link to this definition"></a></dt>
+<dd><p>Connect the reader.</p>
+<p>If no port is set during initialization, it will be determined automatically.
+For this, <cite>port_re</cite> will be used to filter potential serial ports.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>timeout</strong> (<em>float</em><em>, </em><em>optional</em>) – Maximum waiting time for the connection.
+Defaults to 5.0 seconds.</p></li>
+<li><p><strong>port_re</strong> (<em>str</em><em>, </em><em>optional</em>) – Regular expression for finding serial ports automatically.
+Defaults to “USB”.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>RfidReaderException</strong> – Reader error or connection timeout.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="metratec_rfid.DwarfG2v2.deactivate_protected_mode">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">deactivate_protected_mode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">password</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../transponder.html#metratec_rfid.UhfTag" title="metratec_rfid.uhf_tag.UhfTag"><span class="pre">UhfTag</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#metratec_rfid.DwarfG2v2.deactivate_protected_mode" title="Link to this definition"></a></dt>
+<dd><p>Deactivate a tags protected mode.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>password</strong> (<em>str</em>) – The access password (32 bit / 8 hex digits)</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>List with handled tag. If the tag has an
+error, the action was not successful.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>List[<a class="reference internal" href="../transponder.html#metratec_rfid.UhfTag" title="metratec_rfid.UhfTag">UhfTag</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="metratec_rfid.DwarfG2v2.deactivate_short_range_mode">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">deactivate_short_range_mode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">password</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../transponder.html#metratec_rfid.UhfTag" title="metratec_rfid.uhf_tag.UhfTag"><span class="pre">UhfTag</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#metratec_rfid.DwarfG2v2.deactivate_short_range_mode" title="Link to this definition"></a></dt>
+<dd><p>Deactivate a tags short range mode.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>password</strong> (<em>str</em>) – The access password (32 bit / 8 hex digits)</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>List with handled tag. If the tag has an
+error, the action was not successful.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>List[<a class="reference internal" href="../transponder.html#metratec_rfid.UhfTag" title="metratec_rfid.UhfTag">UhfTag</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="metratec_rfid.DwarfG2v2.disable_high_on_tag">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">disable_high_on_tag</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#metratec_rfid.DwarfG2v2.disable_high_on_tag" title="Link to this definition"></a></dt>
+<dd><p>Disable the “High On Tag” feature.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="metratec_rfid.DwarfG2v2.disconnect">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">disconnect</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#metratec_rfid.DwarfG2v2.disconnect" title="Link to this definition"></a></dt>
+<dd><p>Disconnect the reader.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="metratec_rfid.DwarfG2v2.enable_fire_empty_inventory">
+<span class="sig-name descname"><span class="pre">enable_fire_empty_inventory</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">enable</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#metratec_rfid.DwarfG2v2.enable_fire_empty_inventory" title="Link to this definition"></a></dt>
+<dd><p>En-/disable callbacks for empty inventories.</p>
+<p>By default, the event handler for inventories, which can be defined
+with <cite>set_cb_inventory()</cite>, is not called when an inventory was
+technically successful but no tags have been found.
+If this is set to <cite>True</cite>, empty inventories will also trigger
+the defined callback.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>enable</strong> (<em>bool</em>) – Set to True, to enable empty inventory events.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="metratec_rfid.DwarfG2v2.enable_fire_empty_reports">
+<span class="sig-name descname"><span class="pre">enable_fire_empty_reports</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">enable</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#metratec_rfid.DwarfG2v2.enable_fire_empty_reports" title="Link to this definition"></a></dt>
+<dd><p>En-/disable callbacks for empty inventory reports.</p>
+<p>By default, the event handler for inventory reports, which can be defined
+with <cite>set_cb_inventory_report()</cite>, is not called when a report was
+technically successful but no tags have been found.
+If this is set to <cite>True</cite>, empty reports will also trigger
+the defined callback.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>enable</strong> (<em>bool</em>) – Set to True, to enable empty report events.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="metratec_rfid.DwarfG2v2.fetch_inventory">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">fetch_inventory</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">wait_for_tags</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../transponder.html#metratec_rfid.UhfTag" title="metratec_rfid.uhf_tag.UhfTag"><span class="pre">UhfTag</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#metratec_rfid.DwarfG2v2.fetch_inventory" title="Link to this definition"></a></dt>
+<dd><p>Can be called when an inventory has been started. Waits until at least one tag is found
+and returns all currently scanned transponders from a continuous scan.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>wait_for_tags</strong> (<em>bool</em>) – Set to true, to wait until transponders are available.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A list with the transponders found.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>List[<a class="reference internal" href="../transponder.html#metratec_rfid.UhfTag" title="metratec_rfid.UhfTag">UhfTag</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="metratec_rfid.DwarfG2v2.get_antenna_power">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_antenna_power</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">antenna</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#metratec_rfid.DwarfG2v2.get_antenna_power" title="Link to this definition"></a></dt>
+<dd><p>Return the current antenna power of the given port.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>antenna</strong> (<em>int</em>) – Antenna port index.</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>RfidReaderException</strong> – If a reader error occurs.</p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The current antenna power in dBm.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="metratec_rfid.DwarfG2v2.get_antenna_powers">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_antenna_powers</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#metratec_rfid.DwarfG2v2.get_antenna_powers" title="Link to this definition"></a></dt>
+<dd><p>Return a list of current power values for each antenna.</p>
+<p>Index 0 in the list represents antenna port 1, and so on.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>List with power values in dBm.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>List[int]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="metratec_rfid.DwarfG2v2.get_channel_mask">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_channel_mask</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#metratec_rfid.DwarfG2v2.get_channel_mask" title="Link to this definition"></a></dt>
+<dd><p>Get the enabled RF channels of the current region.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>RfidReaderException</strong> – If a reader error occurs.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>64-bit hex string resembling the channel mask. The LSB
+represents channel 1.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="metratec_rfid.DwarfG2v2.get_custom_impinj_settings">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_custom_impinj_settings</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#metratec_rfid.DwarfG2v2.get_custom_impinj_settings" title="Link to this definition"></a></dt>
+<dd><p>Returns the custom Impinj settings.</p>
+<p>See <cite>set_custom_settings()</cite> for more details.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>RfidReaderException</strong> – If a reader error occurs.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Settings ‘fast_id’ and ‘tag_focus’.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Dict[str, bool]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="metratec_rfid.DwarfG2v2.get_high_on_tag_output">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_high_on_tag_output</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#metratec_rfid.DwarfG2v2.get_high_on_tag_output" title="Link to this definition"></a></dt>
+<dd><p>Return the current settings of the “High On Tag” feature.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Dictionary with ‘enable’, ‘pin’ and ‘duration’ entries.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>Dict[str, Any]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="metratec_rfid.DwarfG2v2.get_inventory">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_inventory</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../transponder.html#metratec_rfid.UhfTag" title="metratec_rfid.uhf_tag.UhfTag"><span class="pre">UhfTag</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#metratec_rfid.DwarfG2v2.get_inventory" title="Link to this definition"></a></dt>
+<dd><p>Get an inventory from the current antenna.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>RfidReaderException</strong> – If a reader error occurs.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>An array with the transponders found.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>List[Tag]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="metratec_rfid.DwarfG2v2.get_inventory_report">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_inventory_report</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">duration</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ignore_error</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../transponder.html#metratec_rfid.UhfTag" title="metratec_rfid.uhf_tag.UhfTag"><span class="pre">UhfTag</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#metratec_rfid.DwarfG2v2.get_inventory_report" title="Link to this definition"></a></dt>
+<dd><p>Get an inventory report from the current antenna.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>duration</strong> (<em>int</em><em>, </em><em>optional</em>) – Inventory report duration in seconds. Defaults to 0.1 seconds.</p></li>
+<li><p><strong>ignore_error</strong> (<em>bool</em><em>, </em><em>optional</em>) – Set to True to ignore antenna errors. Defaults to False.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>RfidReaderException</strong> – If a reader error occurs.</p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>An array with the transponders found.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>List[<a class="reference internal" href="../transponder.html#metratec_rfid.UhfTag" title="metratec_rfid.UhfTag">UhfTag</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="metratec_rfid.DwarfG2v2.get_inventory_settings">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_inventory_settings</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#metratec_rfid.DwarfG2v2.get_inventory_settings" title="Link to this definition"></a></dt>
+<dd><p>Get the current reader inventory settings.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>RfidReaderException</strong> – If a reader error occurs.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Inventory settings with keys ‘only_new_tag’, ‘with_rssi’,
+‘with_tid’, ‘fast_start’, ‘phase’, ‘select’ and ‘target’.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Dict[str, Any]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="metratec_rfid.DwarfG2v2.get_logger">
+<span class="sig-name descname"><span class="pre">get_logger</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Logger</span></span></span><a class="headerlink" href="#metratec_rfid.DwarfG2v2.get_logger" title="Link to this definition"></a></dt>
+<dd><p>Return the logger.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The logger for this instance.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>logging.Logger</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="metratec_rfid.DwarfG2v2.get_mask">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_mask</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#metratec_rfid.DwarfG2v2.get_mask" title="Link to this definition"></a></dt>
+<dd><p>Get the current transponder mask for inventories.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>RfidReaderException</strong> – If a reader error occurs.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Mask settings with keys ‘memory’, ‘start’,
+‘mask’ and ‘bit_length’.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Dict[str, Any]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="metratec_rfid.DwarfG2v2.get_multiplexer">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_multiplexer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">antenna_port</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#metratec_rfid.DwarfG2v2.get_multiplexer" title="Link to this definition"></a></dt>
+<dd><p>Get the multiplexer size of an antenna port.</p>
+<p>Get the size of the multiplexer, i.e. the number antennas,
+connected to the specified physical antenna port of the device.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>antenna_port</strong> (<em>int</em>) – The antenna port to which the
+multiplexer is connected.</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>RfidReaderException</strong> – If an error occurs.</p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The multiplexer size.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="metratec_rfid.DwarfG2v2.get_name">
+<span class="sig-name descname"><span class="pre">get_name</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#metratec_rfid.DwarfG2v2.get_name" title="Link to this definition"></a></dt>
+<dd><p>Get the reader name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The reader name.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="metratec_rfid.DwarfG2v2.get_power">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_power</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#metratec_rfid.DwarfG2v2.get_power" title="Link to this definition"></a></dt>
+<dd><p>Return the current power level.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>RfidReaderException</strong> – If a reader error occurs.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The current power level in dBm.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="metratec_rfid.DwarfG2v2.get_q_value">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_q_value</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span></span></span><a class="headerlink" href="#metratec_rfid.DwarfG2v2.get_q_value" title="Link to this definition"></a></dt>
+<dd><p>Return the configured Q value.</p>
+<p>See <cite>set_q_value()</cite> for more details.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>RfidReaderException</strong> – If a reader error occurs.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Dictionary with keys ‘q_start’, ‘q_min’ and ‘q_max’.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="metratec_rfid.DwarfG2v2.get_reader_info">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_reader_info</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#metratec_rfid.DwarfG2v2.get_reader_info" title="Link to this definition"></a></dt>
+<dd><p>Return hard- and software information of the reader.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>RfidReaderException</strong> – If a reader error occurs.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Dictionary with ‘firmware’, ‘firmware_version’,
+‘hardware’, ‘hardware_version’ and ‘serial_number’ keys.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Dict[str, Any]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="metratec_rfid.DwarfG2v2.get_region">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_region</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#metratec_rfid.DwarfG2v2.get_region" title="Link to this definition"></a></dt>
+<dd><p>Return the configured UHF region.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>RfidReaderException</strong> – If a reader error occurs.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The currently used UHF region.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="metratec_rfid.DwarfG2v2.get_rf_mode">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_rf_mode</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#metratec_rfid.DwarfG2v2.get_rf_mode" title="Link to this definition"></a></dt>
+<dd><p>Return the currently selected RF mode.</p>
+<p>See reader description for more detail.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The currently set RF mode value.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="metratec_rfid.DwarfG2v2.get_selected_session">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_selected_session</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#metratec_rfid.DwarfG2v2.get_selected_session" title="Link to this definition"></a></dt>
+<dd><p>Returns the currently selected session.</p>
+<p>See set_selected_session() for more details.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The currently selected session.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="metratec_rfid.DwarfG2v2.get_status">
+<span class="sig-name descname"><span class="pre">get_status</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#metratec_rfid.DwarfG2v2.get_status" title="Link to this definition"></a></dt>
+<dd><p>Return status information about the reader.</p>
+<p>The status information dictionary contains the following keys:</p>
+<ul class="simple">
+<li><p>instance (str): Name of the reader.</p></li>
+<li><p>status (int): Reader status enum (RUNNING = 1, BUSY = 0,
+ERROR = -1, WARNING = -2).</p></li>
+<li><p>message (str): Status message.</p></li>
+<li><p>timestamp (float): Timestamp of the last status change.</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Dictionary with status information.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>Dict[str, Any]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="metratec_rfid.DwarfG2v2.get_tag_size">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_tag_size</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#metratec_rfid.DwarfG2v2.get_tag_size" title="Link to this definition"></a></dt>
+<dd><p>Return the configured expected tag size.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>RfidReaderException</strong> – If a reader error occurs.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The expected number of tags.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="metratec_rfid.DwarfG2v2.get_tag_size_settings">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_tag_size_settings</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#metratec_rfid.DwarfG2v2.get_tag_size_settings" title="Link to this definition"></a></dt>
+<dd><p>Returns the expected tag size settings.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>RfidReaderException</strong> – If a reader error occurs.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Dictionary with ‘tag_size’, ‘min_tags’ and ‘max_tags’ entries.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Dict[str, Any]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="metratec_rfid.DwarfG2v2.get_temperature">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_temperature</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#metratec_rfid.DwarfG2v2.get_temperature" title="Link to this definition"></a></dt>
+<dd><p>Get temperature readings from device sensors.</p>
+<p>Returns measurements in degrees celsius for CPU, RF and PA.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>RfidReaderException</strong> – If a reader error occurs.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Temperature measurements with keys
+“CPU”, “RF” and “PA”.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Dict[str, int]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="metratec_rfid.DwarfG2v2.is_connected">
+<span class="sig-name descname"><span class="pre">is_connected</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#metratec_rfid.DwarfG2v2.is_connected" title="Link to this definition"></a></dt>
+<dd><p>Return whether the reader is connected.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if connected.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="metratec_rfid.DwarfG2v2.is_running">
+<span class="sig-name descname"><span class="pre">is_running</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#metratec_rfid.DwarfG2v2.is_running" title="Link to this definition"></a></dt>
+<dd><p>Return whether the reader is running.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if the reader is running correctly.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="metratec_rfid.DwarfG2v2.kill_tag">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">kill_tag</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">password</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">epc_mask</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../transponder.html#metratec_rfid.UhfTag" title="metratec_rfid.uhf_tag.UhfTag"><span class="pre">UhfTag</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#metratec_rfid.DwarfG2v2.kill_tag" title="Link to this definition"></a></dt>
+<dd><p>Permanently disable a transponder.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>password</strong> (<em>str</em>) – The kill password (32 bit, 8 hex digits).</p></li>
+<li><p><strong>epc_mask</strong> (<em>str</em><em>, </em><em>optional</em>) – EPC mask filter. Defaults to None.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>List with handled tags. If a tag <cite>has_error()</cite>,
+the command was not successful.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>List[<a class="reference internal" href="../transponder.html#metratec_rfid.UhfTag" title="metratec_rfid.UhfTag">UhfTag</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="metratec_rfid.DwarfG2v2.lock_epc_memory">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">lock_epc_memory</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">password</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">epc_mask</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../transponder.html#metratec_rfid.UhfTag" title="metratec_rfid.uhf_tag.UhfTag"><span class="pre">UhfTag</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#metratec_rfid.DwarfG2v2.lock_epc_memory" title="Link to this definition"></a></dt>
+<dd><p>Lock the EPC memory bank of a transponder.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>password</strong> (<em>str</em>) – The access password (32 bit, 8 hex digits).</p></li>
+<li><p><strong>epc_mask</strong> (<em>str</em><em>, </em><em>optional</em>) – EPC mask filter. Defaults to None.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>List with handled tags. If a tag <cite>has_error()</cite>,
+the command was not successful.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>List[<a class="reference internal" href="../transponder.html#metratec_rfid.UhfTag" title="metratec_rfid.UhfTag">UhfTag</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="metratec_rfid.DwarfG2v2.lock_epc_memory_permament">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">lock_epc_memory_permament</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">password</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">epc_mask</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../transponder.html#metratec_rfid.UhfTag" title="metratec_rfid.uhf_tag.UhfTag"><span class="pre">UhfTag</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#metratec_rfid.DwarfG2v2.lock_epc_memory_permament" title="Link to this definition"></a></dt>
+<dd><p>Permanently lock the EPC memory bank a transponder.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>password</strong> (<em>str</em>) – The access password (32 bit, 8 hex digits).</p></li>
+<li><p><strong>epc_mask</strong> (<em>str</em><em>, </em><em>optional</em>) – EPC mask filter. Defaults to None.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>List with handled tags. If a tag <cite>has_error()</cite>,
+the command was not successful.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>List[<a class="reference internal" href="../transponder.html#metratec_rfid.UhfTag" title="metratec_rfid.UhfTag">UhfTag</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="metratec_rfid.DwarfG2v2.lock_tag">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">lock_tag</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">membank</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">password</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">epc_mask</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../transponder.html#metratec_rfid.UhfTag" title="metratec_rfid.uhf_tag.UhfTag"><span class="pre">UhfTag</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#metratec_rfid.DwarfG2v2.lock_tag" title="Link to this definition"></a></dt>
+<dd><p>Lock a memory bank of a transponder.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>membank</strong> (<em>str</em>) – The memory to lock [‘EPC’, ‘USR’, ‘LCK’, ‘KILL’, ‘RES’].</p></li>
+<li><p><strong>password</strong> (<em>str</em>) – The access password (32 bit, 8 hex digits).</p></li>
+<li><p><strong>epc_mask</strong> (<em>str</em><em>, </em><em>optional</em>) – EPC mask filter. Defaults to None.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>List with handled tags. If a tag <cite>has_error()</cite>,
+the command was not successful.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>List[<a class="reference internal" href="../transponder.html#metratec_rfid.UhfTag" title="metratec_rfid.UhfTag">UhfTag</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="metratec_rfid.DwarfG2v2.lock_tag_permament">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">lock_tag_permament</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">membank</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">password</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">epc_mask</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../transponder.html#metratec_rfid.UhfTag" title="metratec_rfid.uhf_tag.UhfTag"><span class="pre">UhfTag</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#metratec_rfid.DwarfG2v2.lock_tag_permament" title="Link to this definition"></a></dt>
+<dd><p>Permamently lock a memory bank of a transponder.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>membank</strong> (<em>str</em>) – The memory to lock [‘EPC’, ‘USR’, ‘LCK’, ‘KILL’, ‘RES’].</p></li>
+<li><p><strong>password</strong> (<em>str</em>) – The access password (32 bit, 8 hex digits).</p></li>
+<li><p><strong>epc_mask</strong> (<em>str</em><em>, </em><em>optional</em>) – EPC mask filter. Defaults to None.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>List with handled tags. If a tag <cite>has_error()</cite>,
+the command was not successful.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>List[<a class="reference internal" href="../transponder.html#metratec_rfid.UhfTag" title="metratec_rfid.UhfTag">UhfTag</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="metratec_rfid.DwarfG2v2.lock_user_memory">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">lock_user_memory</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">password</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">epc_mask</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../transponder.html#metratec_rfid.UhfTag" title="metratec_rfid.uhf_tag.UhfTag"><span class="pre">UhfTag</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#metratec_rfid.DwarfG2v2.lock_user_memory" title="Link to this definition"></a></dt>
+<dd><p>Lock the USER memory bank of a transponder.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>password</strong> (<em>str</em>) – The access password (32 bit, 8 hex digits).</p></li>
+<li><p><strong>epc_mask</strong> (<em>str</em><em>, </em><em>optional</em>) – EPC mask filter. Defaults to None.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>List with handled tags. If a tag <cite>has_error()</cite>,
+the command was not successful.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>List[<a class="reference internal" href="../transponder.html#metratec_rfid.UhfTag" title="metratec_rfid.UhfTag">UhfTag</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="metratec_rfid.DwarfG2v2.lock_user_memory_permament">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">lock_user_memory_permament</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">password</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">epc_mask</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../transponder.html#metratec_rfid.UhfTag" title="metratec_rfid.uhf_tag.UhfTag"><span class="pre">UhfTag</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#metratec_rfid.DwarfG2v2.lock_user_memory_permament" title="Link to this definition"></a></dt>
+<dd><p>Permanently lock the USER memory bank a transponder.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>password</strong> (<em>str</em>) – The access password (32 bit, 8 hex digits).</p></li>
+<li><p><strong>epc_mask</strong> (<em>str</em><em>, </em><em>optional</em>) – EPC mask filter. Defaults to None.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>List with handled tags. If a tag <cite>has_error()</cite>,
+the command was not successful.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>List[<a class="reference internal" href="../transponder.html#metratec_rfid.UhfTag" title="metratec_rfid.UhfTag">UhfTag</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="metratec_rfid.DwarfG2v2.read_tag_data">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">read_tag_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">start</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">length</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">memory</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'USR'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">epc_mask</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../transponder.html#metratec_rfid.UhfTag" title="metratec_rfid.uhf_tag.UhfTag"><span class="pre">UhfTag</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#metratec_rfid.DwarfG2v2.read_tag_data" title="Link to this definition"></a></dt>
+<dd><p>Read data from all transponders found.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>start</strong> (<em>int</em><em>, </em><em>optional</em>) – Start byte. Defaults to 0.</p></li>
+<li><p><strong>length</strong> (<em>int</em><em>, </em><em>optional</em>) – Number of bytes to read. Defaults to 1.</p></li>
+<li><p><strong>epc_mask</strong> (<em>str</em><em>, </em><em>optional</em>) – EPC mask filter. Defaults to None.</p></li>
+<li><p><strong>memory</strong> (<em>str</em><em>, </em><em>optional</em>) – Memory bank to read [“PC”,”EPC”,”USR”,”TID”, “RES”].
+Defaults to “USR”.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>RfidReaderException</strong> – If a reader error occurs.</p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A list of transponders found.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>List[<a class="reference internal" href="../transponder.html#metratec_rfid.UhfTag" title="metratec_rfid.UhfTag">UhfTag</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="metratec_rfid.DwarfG2v2.read_tag_tid">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">read_tag_tid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">start</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">length</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">4</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">epc_mask</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../transponder.html#metratec_rfid.UhfTag" title="metratec_rfid.uhf_tag.UhfTag"><span class="pre">UhfTag</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#metratec_rfid.DwarfG2v2.read_tag_tid" title="Link to this definition"></a></dt>
+<dd><p>Read the tag ID (TID) of all transponders found.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>start</strong> (<em>int</em><em>, </em><em>optional</em>) – Start byte. Defaults to 0.</p></li>
+<li><p><strong>length</strong> (<em>int</em><em>, </em><em>optional</em>) – Number of bytes to read. Defaults to 1.</p></li>
+<li><p><strong>epc_mask</strong> (<em>str</em><em>, </em><em>optional</em>) – EPC mask filter. Defaults to None.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>RfidReaderException</strong> – If a reader error occurs.</p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A list with the transponders found.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>List[<a class="reference internal" href="../transponder.html#metratec_rfid.UhfTag" title="metratec_rfid.UhfTag">UhfTag</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="metratec_rfid.DwarfG2v2.read_tag_usr">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">read_tag_usr</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">start</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">length</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">epc_mask</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../transponder.html#metratec_rfid.UhfTag" title="metratec_rfid.uhf_tag.UhfTag"><span class="pre">UhfTag</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#metratec_rfid.DwarfG2v2.read_tag_usr" title="Link to this definition"></a></dt>
+<dd><p>Read the user memory (USR) of all transponders found.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>start</strong> (<em>int</em><em>, </em><em>optional</em>) – Start byte. Defaults to 0.</p></li>
+<li><p><strong>length</strong> (<em>int</em><em>, </em><em>optional</em>) – Number of bytes to read. Defaults to 1.</p></li>
+<li><p><strong>epc_mask</strong> (<em>str</em><em>, </em><em>optional</em>) – EPC mask filter. Defaults to None.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>RfidReaderException</strong> – If a reader error occurs.</p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A list with the transponders found.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>List[<a class="reference internal" href="../transponder.html#metratec_rfid.UhfTag" title="metratec_rfid.UhfTag">UhfTag</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="metratec_rfid.DwarfG2v2.reset_channel_mask">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">reset_channel_mask</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#metratec_rfid.DwarfG2v2.reset_channel_mask" title="Link to this definition"></a></dt>
+<dd><p>Reset the current channel mask to default.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="metratec_rfid.DwarfG2v2.reset_mask">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">reset_mask</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#metratec_rfid.DwarfG2v2.reset_mask" title="Link to this definition"></a></dt>
+<dd><p>Reset and disable inventory mask.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="metratec_rfid.DwarfG2v2.send_custom_command">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">send_custom_command</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">command</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">2.0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#metratec_rfid.DwarfG2v2.send_custom_command" title="Link to this definition"></a></dt>
+<dd><p>Send an arbitrary AT command to the reader and return the response.</p>
+<p>Reference the Metratec UHF AT Protocol Guide for information
+about the underlying AT commands.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>command</strong> (<em>str</em>) – The AT command to send.</p></li>
+<li><p><strong>timeout</strong> (<em>float</em><em>, </em><em>optional</em>) – The response timeout. Defaults to 2.0 seconds.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>RfidReaderException</strong> – If a reader error occurs.</p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Line-by-line list of the reader response. In case
+of a set-command (e.g. AT+PWR=5) the list will be empty.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>list[str]</p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">res</span> <span class="o">=</span> <span class="n">send_custom_command</span><span class="p">(</span><span class="s2">&quot;AT+Q?&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">res</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="go">+Q: 2,0,10</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="metratec_rfid.DwarfG2v2.send_select">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">send_select</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mask</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">action</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">memory</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'EPC'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bit_length</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'SL'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#metratec_rfid.DwarfG2v2.send_select" title="Link to this definition"></a></dt>
+<dd><p>Modify a tags selected flag or inventoried state directly.</p>
+<p>Depending on the action parameter, the tags will modify their
+internal selected flag (SL=0/1) or inventoried state (INV=A/B) depending
+on whether its data matches the given mask or not.</p>
+<table class="docutils align-default" id="id1">
+<caption><span class="caption-text">Action Table</span><a class="headerlink" href="#id1" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 10.0%" />
+<col style="width: 45.0%" />
+<col style="width: 45.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>action</p></th>
+<th class="head"><p>TAG MATCHING</p></th>
+<th class="head"><p>TAG NOT-MATCHING</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>SL = 1 or INV = A</p></td>
+<td><p>SL = 0 or INV = B</p></td>
+</tr>
+<tr class="row-odd"><td><p>1</p></td>
+<td><p>SL = 1 or INV = A</p></td>
+<td><p>do nothing</p></td>
+</tr>
+<tr class="row-even"><td><p>2</p></td>
+<td><p>do nothing</p></td>
+<td><p>SL = 0 or INV = B</p></td>
+</tr>
+<tr class="row-odd"><td><p>3</p></td>
+<td><p>negate SL or switch INV</p></td>
+<td><p>do nothing</p></td>
+</tr>
+<tr class="row-even"><td><p>4</p></td>
+<td><p>SL = 0 or INV = B</p></td>
+<td><p>SL = 1 or INV = A</p></td>
+</tr>
+<tr class="row-odd"><td><p>5</p></td>
+<td><p>SL = 0 or INV = B</p></td>
+<td><p>do nothing</p></td>
+</tr>
+<tr class="row-even"><td><p>6</p></td>
+<td><p>do nothing</p></td>
+<td><p>SL = 1 or INV = A</p></td>
+</tr>
+<tr class="row-odd"><td><p>7</p></td>
+<td><p>do nothing</p></td>
+<td><p>negate SL or switch INV</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>mask</strong> (<em>str</em>) – The mask data (hex).</p></li>
+<li><p><strong>action</strong> (<em>int</em>) – Index from the action table.</p></li>
+<li><p><strong>start</strong> (<em>int</em><em>, </em><em>optional</em>) – Start bit for matching. Defaults to 0.</p></li>
+<li><p><strong>memory</strong> (<em>str</em><em>, </em><em>optional</em>) – The memory for the mask
+[‘PC’,’EPC’,’USR’,’TID’]. Defaults to ‘EPC’.</p></li>
+<li><p><strong>bit_length</strong> (<em>int</em><em>, </em><em>optional</em>) – Bits from the mask to check.
+Defaults to 0, which will use the complete mask.</p></li>
+<li><p><strong>target</strong> (<em>str</em><em>|</em><em>int</em><em>, </em><em>optional</em>) – The target for the select command.
+An integer [0,3] will modify the INV state in the matching session.
+By default “SL” is used to modify the tags Selected Flag.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>RfidReaderException</strong> – If a reader error occurs.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="metratec_rfid.DwarfG2v2.set_antenna_power">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">set_antenna_power</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">antenna</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">power</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#metratec_rfid.DwarfG2v2.set_antenna_power" title="Link to this definition"></a></dt>
+<dd><p>Set the RF power of a single antenna.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>antenna</strong> (<em>int</em>) – Antenna port index.</p></li>
+<li><p><strong>power</strong> (<em>int</em>) – Antenna power in dBm [0,30].</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>RfidReaderException</strong> – If a reader error occurs.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="metratec_rfid.DwarfG2v2.set_antenna_powers">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">set_antenna_powers</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">antenna_powers</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#metratec_rfid.DwarfG2v2.set_antenna_powers" title="Link to this definition"></a></dt>
+<dd><p>Set the RF power of all antennas.</p>
+<p>Index 0 in the list represents antenna port 1, and so on.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>antenna_powers</strong> (<em>List</em><em>[</em><em>int</em><em>]</em>) – List of power values in dBm
+for each antenna.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="metratec_rfid.DwarfG2v2.set_cb_inventory">
+<span class="sig-name descname"><span class="pre">set_cb_inventory</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">callback</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../transponder.html#metratec_rfid.UhfTag" title="metratec_rfid.uhf_tag.UhfTag"><span class="pre">UhfTag</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../transponder.html#metratec_rfid.UhfTag" title="metratec_rfid.uhf_tag.UhfTag"><span class="pre">UhfTag</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="headerlink" href="#metratec_rfid.DwarfG2v2.set_cb_inventory" title="Link to this definition"></a></dt>
+<dd><p>Set the callback for a new inventory.</p>
+<p>Define a callback which will be triggered whenever a new inventory
+result is available. The callback has the following arguments:</p>
+<ul class="simple">
+<li><p>tags (List[UhfTag]) - List of transponders found in the inventory.</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>callback</strong> (<em>Callable</em>) – Reference to the callback function to use.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The old callback.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Optional[Callable]</p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">my_callback</span><span class="p">(</span><span class="n">tags</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="k">for</span> <span class="n">tag</span> <span class="ow">in</span> <span class="n">tags</span><span class="p">:</span>
+<span class="gp">&gt;&gt;&gt; </span>        <span class="nb">print</span><span class="p">(</span><span class="n">tag</span><span class="o">.</span><span class="n">get_epc</span><span class="p">())</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">set_cb_inventory</span><span class="p">(</span><span class="n">my_callback</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="metratec_rfid.DwarfG2v2.set_cb_inventory_report">
+<span class="sig-name descname"><span class="pre">set_cb_inventory_report</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">callback</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../transponder.html#metratec_rfid.UhfTag" title="metratec_rfid.uhf_tag.UhfTag"><span class="pre">UhfTag</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../transponder.html#metratec_rfid.UhfTag" title="metratec_rfid.uhf_tag.UhfTag"><span class="pre">UhfTag</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="headerlink" href="#metratec_rfid.DwarfG2v2.set_cb_inventory_report" title="Link to this definition"></a></dt>
+<dd><p>Set the callback for a new inventory report.</p>
+<p>Define a callback which will be triggered whenever a new inventory
+report is available. The callback has the following arguments:</p>
+<ul class="simple">
+<li><p>tags (List[UhfTag]) - List of transponders found in the inventory.</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>callback</strong> (<em>Callable</em>) – Reference to the callback function to use.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The old callback.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Optional[Callable]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="metratec_rfid.DwarfG2v2.set_cb_status">
+<span class="sig-name descname"><span class="pre">set_cb_status</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">callback</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Callable</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="headerlink" href="#metratec_rfid.DwarfG2v2.set_cb_status" title="Link to this definition"></a></dt>
+<dd><p>Set the callback for status changes.</p>
+<p>Define a callback which will be triggered whenever the status of
+the reader changes. The callback has the following arguments:</p>
+<ul class="simple">
+<li><p>status (Dict[str, Any]) - The new reader status dictionary, which
+contains at least the ‘status’, ‘message’ and ‘timestamp’ keys.</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>callback</strong> (<em>Callable</em>) – Reference to the callback function to use.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The old callback.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Optional[Callable]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="metratec_rfid.DwarfG2v2.set_channel_mask">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">set_channel_mask</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mask</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#metratec_rfid.DwarfG2v2.set_channel_mask" title="Link to this definition"></a></dt>
+<dd><p>Define which RF channels of the current region are used.</p>
+<p>Channel 1 is en-/disabled by the LSB of the mask, so a value
+of “3” will enable channels 1 and 2.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>mask</strong> (<em>str</em>) – 64-bit hex string that encodes the channel mask.</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>RfidReaderException</strong> – If a reader error occurs.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="metratec_rfid.DwarfG2v2.set_custom_impinj_settings">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">set_custom_impinj_settings</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fast_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tag_focus</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#metratec_rfid.DwarfG2v2.set_custom_impinj_settings" title="Link to this definition"></a></dt>
+<dd><p>De-/activate proprietary Impinj features.</p>
+<p>The RFID tag IC manufacturer Impinj has added two custom features
+to its tag ICs that are not compatible with tag ICs from other
+manufacturers. Activate these features with this command - but
+make sure that you only use tags with Impinj ICs like Monza6 or
+M7xx or M8xx series. Tags from other manufacturers will most
+likely not answer at all when those options are active!</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>fast_id</strong> (<em>bool</em><em>, </em><em>optional</em>) – True, to allow reading the TagID
+together with the EPC which can speed up getting TID
+data. Defaults to False.</p></li>
+<li><p><strong>tag_focus</strong> (<em>bool</em><em>, </em><em>optional</em>) – True, to use a proprietory tag
+feature where each tag only answers once until it is
+repowered. This allows to scan a high number of tags
+because each tag only answers once and makes
+anti-collision easier for the following tags.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>RfidReaderException</strong> – If an reader error occurs.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="metratec_rfid.DwarfG2v2.set_heartbeat">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">set_heartbeat</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">interval</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#metratec_rfid.DwarfG2v2.set_heartbeat" title="Link to this definition"></a></dt>
+<dd><p>Set the heartbeat interval of the reader.</p>
+<p>If the interval is larger than 0, the SDK will regularly check
+whether the reader is still connected and automatically
+attempt to re-connect and raise and error on failure.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>interval</strong> (<em>float</em>) – Interval in seconds [0, 60].</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="metratec_rfid.DwarfG2v2.set_high_on_tag_output">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">set_high_on_tag_output</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">output_pin</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">duration</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">100</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#metratec_rfid.DwarfG2v2.set_high_on_tag_output" title="Link to this definition"></a></dt>
+<dd><p>Enable the “High On Tag” feature.</p>
+<p>This triggers the selected output to go to the <cite>HIGH</cite> state
+when a tag is inventoried. This allows triggering an external
+device whenever a tag is found.</p>
+<p>This corresponds to the blue LED on the device.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>output_pin</strong> (<em>int</em>) – Output pin index [1,4].</p></li>
+<li><p><strong>duration</strong> (<em>int</em><em>, </em><em>optional</em>) – <cite>HIGH</cite> duration in milliseconds
+[10, 10000]. Defaults to 100.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="metratec_rfid.DwarfG2v2.set_inventory_settings">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">set_inventory_settings</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">only_new_tag</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">with_rssi</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">with_tid</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fast_start</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">phase</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">select</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#metratec_rfid.DwarfG2v2.set_inventory_settings" title="Link to this definition"></a></dt>
+<dd><p>Configure the inventory response.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>only_new_tag</strong> (<em>bool</em><em>, </em><em>optional</em>) – Only return new tags. Defaults to False.</p></li>
+<li><p><strong>with_rssi</strong> (<em>bool</em><em>, </em><em>optional</em>) – Append the RSSI value to the response. Defaults to True.</p></li>
+<li><p><strong>with_tid</strong> (<em>bool</em><em>, </em><em>optional</em>) – Append the TID to the response. Defaults to False.</p></li>
+<li><p><strong>fast_start</strong> (<em>bool</em><em>, </em><em>optional</em>) – Does an inventory without putting all tags into session
+state A at the start. This can speed up the start of the inventory, but it requires
+that all tags are in “reset state”.</p></li>
+<li><p><strong>phase</strong> (<em>bool</em><em>, </em><em>optional</em>) – Append the phase information to the inventory.</p></li>
+<li><p><strong>select</strong> (<em>str</em><em>, </em><em>optional</em>) – Used to set which tags should respond. ‘ALL’
+for all tags, ‘SL’ for tags with asserted selected flag or
+‘NSL’ for not-selected tags.</p></li>
+<li><p><strong>target</strong> (<em>str</em><em>, </em><em>optional</em>) – Used to set which tags should respond.
+Tags with inventoried state ‘A’ or ‘B’.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>RfidReaderException</strong> – If a reader error occurs.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="metratec_rfid.DwarfG2v2.set_kill_password">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">set_kill_password</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">password</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">new_password</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">epc_mask</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../transponder.html#metratec_rfid.UhfTag" title="metratec_rfid.uhf_tag.UhfTag"><span class="pre">UhfTag</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#metratec_rfid.DwarfG2v2.set_kill_password" title="Link to this definition"></a></dt>
+<dd><p>Change the kill password of a tag.</p>
+<p>This will automatically read- and write-lock the memory bank.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>password</strong> (<em>str</em>) – The access password (32 bit, 8 hex digits)
+or an empty string (<cite>“”</cite>) if memory is unlocked.</p></li>
+<li><p><strong>new_password</strong> (<em>_type_</em>) – The kill password (32 bit, 8 hex digits).</p></li>
+<li><p><strong>epc_mask</strong> (<em>str</em><em>, </em><em>optional</em>) – EPC mask filter. Defaults to None.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>List with handled tags. If a tag <cite>has_error()</cite>,
+the command was not successful.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>List[<a class="reference internal" href="../transponder.html#metratec_rfid.UhfTag" title="metratec_rfid.UhfTag">UhfTag</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="metratec_rfid.DwarfG2v2.set_lock_password">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">set_lock_password</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">password</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">new_password</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">epc_mask</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../transponder.html#metratec_rfid.UhfTag" title="metratec_rfid.uhf_tag.UhfTag"><span class="pre">UhfTag</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#metratec_rfid.DwarfG2v2.set_lock_password" title="Link to this definition"></a></dt>
+<dd><p>Change the lock/access password of a tag.</p>
+<p>This will automatically read- and write-lock the memory bank.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>password</strong> (<em>str</em>) – The current access password (32 bit, 8 hex digits)
+or an empty string (<cite>“”</cite>) if memory is unlocked.</p></li>
+<li><p><strong>new_password</strong> (<em>_type_</em>) – The new password (32 bit, 8 hex digits).</p></li>
+<li><p><strong>epc_mask</strong> (<em>str</em><em>, </em><em>optional</em>) – EPC mask filter. Defaults to None.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>List with handled tags. If a tag <cite>has_error()</cite>,
+the command was not successful.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>List[<a class="reference internal" href="../transponder.html#metratec_rfid.UhfTag" title="metratec_rfid.UhfTag">UhfTag</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="metratec_rfid.DwarfG2v2.set_mask">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">set_mask</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mask</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">memory</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'EPC'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bit_length</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#metratec_rfid.DwarfG2v2.set_mask" title="Link to this definition"></a></dt>
+<dd><p>Set a mask for all inventory operations.</p>
+<p>If this is enabled, inventories will filter transponders and
+only operate on tags whose data match the specified mask.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>mask</strong> (<em>str</em>) – The mask data (hex).</p></li>
+<li><p><strong>start</strong> (<em>int</em><em>, </em><em>optional</em>) – Start byte (or bit). Defaults to 0.</p></li>
+<li><p><strong>memory</strong> (<em>str</em><em>, </em><em>optional</em>) – The memory for the mask
+[‘PC’,’EPC’,’USR’,’TID’]. Defaults to ‘EPC’.</p></li>
+<li><p><strong>bit_length</strong> (<em>int</em><em>, </em><em>optional</em>) – Bits from the mask to check.
+Defaults to 0, which will use the complete mask.
+If used, ‘start’ is interpreted in bits.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>RfidReaderException</strong> – If a reader error occurs.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="metratec_rfid.DwarfG2v2.set_multiplexer">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">set_multiplexer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">antenna_port</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">multiplexer_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#metratec_rfid.DwarfG2v2.set_multiplexer" title="Link to this definition"></a></dt>
+<dd><p>Set the multiplexer size of an antenna port.</p>
+<p>Set the size of the multiplexer, i.e. the number of antennas,
+connected to the specified physical antenna port of the device.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>antenna_port</strong> (<em>int</em>) – The antenna port to which the
+multiplexer is connected</p></li>
+<li><p><strong>multiplexer_size</strong> (<em>int</em>) – The multiplexer size</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>RfidReaderException</strong> – If an error occurs.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="metratec_rfid.DwarfG2v2.set_power">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">set_power</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">power</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#metratec_rfid.DwarfG2v2.set_power" title="Link to this definition"></a></dt>
+<dd><p>Set the antenna power of the reader for all antennas.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>power</strong> (<em>int</em>) – Power value in dBm [0,21].</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>RfidReaderException</strong> – If a reader error occurs.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="metratec_rfid.DwarfG2v2.set_q_value">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">set_q_value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">q_start</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">q_min</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">-1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">q_max</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">-1</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#metratec_rfid.DwarfG2v2.set_q_value" title="Link to this definition"></a></dt>
+<dd><p>Configure the expected number of transponders in the field as Q value.</p>
+<p>The Q value is the exponent of 2 and the product should be around
+or above the expected number of tags. Setting this value too low
+will result in tags being missed. Setting the value too high will
+lead to unnecessarily slow inventories.</p>
+<p>The value can be adapted automatically during operation, hence
+the three different arguments.</p>
+<p>Alternatively, the <cite>set_tag_size()</cite> method can be used.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>q_start</strong> (<em>int</em>) – Start Q value.</p></li>
+<li><p><strong>q_min</strong> (<em>int</em><em>, </em><em>optional</em>) – Minimum Q value.</p></li>
+<li><p><strong>q_max</strong> (<em>int</em><em>, </em><em>optional</em>) – Maximum Q value.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>RfidReaderException</strong> – If a reader error occurs.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="metratec_rfid.DwarfG2v2.set_region">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">set_region</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">region</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#metratec_rfid.DwarfG2v2.set_region" title="Link to this definition"></a></dt>
+<dd><p>Set the used UHF region.</p>
+<p>This has to match the region you are in as well as the antenna(s)
+that are connected to the reader.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>region</strong> (<em>str</em>) – The UHF region, e.g. “ETSI” or “FCC”.</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>RfidReaderException</strong> – If a reader error occurs.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="metratec_rfid.DwarfG2v2.set_rf_mode">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">set_rf_mode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mode_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#metratec_rfid.DwarfG2v2.set_rf_mode" title="Link to this definition"></a></dt>
+<dd><p>Set RF mode value for inventories.</p>
+<p>Configure the internal RF communication settings between tag and
+reader. Each mode ID corresponds to a set of RF parameters that
+fit together. Not all devices support all modes and not all
+modes can be accessed in all regions.
+See reader description for more detail.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>mode_id</strong> (<em>int</em>) – The RF mode ID to set.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="metratec_rfid.DwarfG2v2.set_selected_session">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">set_selected_session</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">session</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'AUTO'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#metratec_rfid.DwarfG2v2.set_selected_session" title="Link to this definition"></a></dt>
+<dd><p>Set the EPC Gen2 session to perform inventories in.</p>
+<p>Manually select the session according to the EPC Gen 2 Protocol
+to use during inventory scan. Default value is <cite>AUTO</cite> and in
+most cases it should stay this way. Only change this if you
+absolutely know what you are doing and if you can control the
+types of tags you scan. Otherwise, unexpected results during
+inventory scans with “Only New Tags” active might happen.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>session</strong> (<em>str</em><em>, </em><em>optional</em>) – Session to set
+[“0”, “1”, “2”, “3”, “AUTO”]. Defaults to “AUTO”.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="metratec_rfid.DwarfG2v2.set_tag_size">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">set_tag_size</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tag_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_tags</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">-1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_tags</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">-1</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#metratec_rfid.DwarfG2v2.set_tag_size" title="Link to this definition"></a></dt>
+<dd><p>Configure the expected numbers of transponders in the field.</p>
+<p>Alternatively, the <cite>set_q_value()</cite> method can be used.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>tag_size</strong> (<em>int</em>) – Expected number of transponders.</p></li>
+<li><p><strong>min_tags</strong> (<em>int</em><em>, </em><em>optional</em>) – Minimum numbers of transponders.</p></li>
+<li><p><strong>max_tags</strong> (<em>int</em><em>, </em><em>optional</em>) – Maximum numbers of transponders.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>RfidReaderException</strong> – If a reader error occurs.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="metratec_rfid.DwarfG2v2.start_inventory">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">start_inventory</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#metratec_rfid.DwarfG2v2.start_inventory" title="Link to this definition"></a></dt>
+<dd><p>Start a continuous inventory.</p>
+<p>This will cause the reader to perform inventories continuously
+until the <cite>stop_inventory()</cite> function is called.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>RfidReaderException</strong> – If a reader error occurs.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="metratec_rfid.DwarfG2v2.start_inventory_report">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">start_inventory_report</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">duration</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.25</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ignore_error</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#metratec_rfid.DwarfG2v2.start_inventory_report" title="Link to this definition"></a></dt>
+<dd><p>Start a continuous inventory report on multiple antennas.</p>
+<p>This will cause the reader to perform inventory reports continuously
+until the <cite>stop_inventory_report()</cite> function is called.
+Antenna ports are chosen according to <cite>set_antenna_multiplex()</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>duration</strong> (<em>float</em><em>, </em><em>optional</em>) – Inventory report duration in seconds.
+Defaults to 0.25.</p></li>
+<li><p><strong>ignore_error</strong> (<em>bool</em><em>, </em><em>optional</em>) – Set to True to ignore antenna
+errors. Defaults to False.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>RfidReaderException</strong> – If a reader error occurs.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="metratec_rfid.DwarfG2v2.stop_inventory">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">stop_inventory</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#metratec_rfid.DwarfG2v2.stop_inventory" title="Link to this definition"></a></dt>
+<dd><p>Stop the continuous inventory.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>RfidReaderException</strong> – If a reader error occurs.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="metratec_rfid.DwarfG2v2.stop_inventory_report">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">stop_inventory_report</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#metratec_rfid.DwarfG2v2.stop_inventory_report" title="Link to this definition"></a></dt>
+<dd><p>Stop the continuous inventory report.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>RfidReaderException</strong> – If a reader error occurs.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="metratec_rfid.DwarfG2v2.unlock_epc_memory">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">unlock_epc_memory</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">password</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">epc_mask</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../transponder.html#metratec_rfid.UhfTag" title="metratec_rfid.uhf_tag.UhfTag"><span class="pre">UhfTag</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#metratec_rfid.DwarfG2v2.unlock_epc_memory" title="Link to this definition"></a></dt>
+<dd><p>Unlock the EPC memory bank of a transponder.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>password</strong> (<em>str</em>) – The access password (32 bit, 8 hex digits).</p></li>
+<li><p><strong>epc_mask</strong> (<em>str</em><em>, </em><em>optional</em>) – EPC mask filter. Defaults to None.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>List with handled tags. If a tag <cite>has_error()</cite>,
+the command was not successful.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>List[<a class="reference internal" href="../transponder.html#metratec_rfid.UhfTag" title="metratec_rfid.UhfTag">UhfTag</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="metratec_rfid.DwarfG2v2.unlock_tag">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">unlock_tag</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">membank</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">password</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">epc_mask</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../transponder.html#metratec_rfid.UhfTag" title="metratec_rfid.uhf_tag.UhfTag"><span class="pre">UhfTag</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#metratec_rfid.DwarfG2v2.unlock_tag" title="Link to this definition"></a></dt>
+<dd><p>Unlock a memory bank of a transponder.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>membank</strong> (<em>str</em>) – The memory to unlock [‘EPC’, ‘USR’, ‘LCK’, ‘KILL’, ‘RES’].</p></li>
+<li><p><strong>password</strong> (<em>str</em>) – The access password (32 bit, 8 hex digits).</p></li>
+<li><p><strong>epc_mask</strong> (<em>str</em><em>, </em><em>optional</em>) – EPC mask filter. Defaults to None.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>List with handled tags. If a tag <cite>has_error()</cite>,
+the command was not successful.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>List[<a class="reference internal" href="../transponder.html#metratec_rfid.UhfTag" title="metratec_rfid.UhfTag">UhfTag</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="metratec_rfid.DwarfG2v2.unlock_user_memory">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">unlock_user_memory</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">password</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">epc_mask</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../transponder.html#metratec_rfid.UhfTag" title="metratec_rfid.uhf_tag.UhfTag"><span class="pre">UhfTag</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#metratec_rfid.DwarfG2v2.unlock_user_memory" title="Link to this definition"></a></dt>
+<dd><p>Unlock the USER memory bank a transponder.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>password</strong> (<em>str</em>) – The access password (32 bit, 8 hex digits).</p></li>
+<li><p><strong>epc_mask</strong> (<em>str</em><em>, </em><em>optional</em>) – EPC mask filter. Defaults to None.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>List with handled tags. If a tag <cite>has_error()</cite>,
+the command was not successful.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>List[<a class="reference internal" href="../transponder.html#metratec_rfid.UhfTag" title="metratec_rfid.UhfTag">UhfTag</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="metratec_rfid.DwarfG2v2.write_tag_data">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">write_tag_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">memory</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'USR'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">epc_mask</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../transponder.html#metratec_rfid.UhfTag" title="metratec_rfid.uhf_tag.UhfTag"><span class="pre">UhfTag</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#metratec_rfid.DwarfG2v2.write_tag_data" title="Link to this definition"></a></dt>
+<dd><p>Write data to all transponders found.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<em>str</em>) – Data to write (hex).</p></li>
+<li><p><strong>start</strong> (<em>int</em><em>, </em><em>optional</em>) – Start byte. Defaults to 0.</p></li>
+<li><p><strong>memory</strong> (<em>str</em><em>, </em><em>optional</em>) – Memory bank to write [“PC”,”EPC”,”USR”, “RES”].
+Defaults to “USR”.</p></li>
+<li><p><strong>epc_mask</strong> (<em>str</em><em>, </em><em>optional</em>) – EPC mask filter. Defaults to None.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>RfidReaderException</strong> – If a reader error occurs.</p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>List with handled tags. If a tag was not written
+successfully, the <cite>has_error()</cite> function of the tag will return True.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>List[<a class="reference internal" href="../transponder.html#metratec_rfid.UhfTag" title="metratec_rfid.UhfTag">UhfTag</a>]</p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<p>Assuming the EPC of a tag starts with “ABCD”, the following
+command will change it to “AB01”.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">write_tag_data</span><span class="p">(</span><span class="s2">&quot;01&quot;</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">memory</span><span class="o">=</span><span class="s2">&quot;EPC&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="metratec_rfid.DwarfG2v2.write_tag_epc">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">write_tag_epc</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tid</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">new_epc</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../transponder.html#metratec_rfid.UhfTag" title="metratec_rfid.uhf_tag.UhfTag"><span class="pre">UhfTag</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#metratec_rfid.DwarfG2v2.write_tag_epc" title="Link to this definition"></a></dt>
+<dd><p>Write data into the EPC memory of a specific transponder.</p>
+<p>Change the Electronic Product Code (EPC) of a specific tag, identified
+by its unique tag ID (TID).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>tid</strong> (<em>str</em>) – The tag ID of the transponder.</p></li>
+<li><p><strong>new_epc</strong> – The new EPC data to write (hex).</p></li>
+<li><p><strong>start</strong> (<em>int</em><em>, </em><em>optional</em>) – Start byte. Defaults to 0.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>RfidReaderException</strong> – If a reader error occurs.</p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>List with handled tags. If a tag was not written
+successfully, the <cite>has_error()</cite> function of the tag will return True.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>List[<a class="reference internal" href="../transponder.html#metratec_rfid.UhfTag" title="metratec_rfid.UhfTag">UhfTag</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="metratec_rfid.DwarfG2v2.write_tag_usr">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">write_tag_usr</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">epc_mask</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../transponder.html#metratec_rfid.UhfTag" title="metratec_rfid.uhf_tag.UhfTag"><span class="pre">UhfTag</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#metratec_rfid.DwarfG2v2.write_tag_usr" title="Link to this definition"></a></dt>
+<dd><p>write data into the user memory (USR) of all transponders found.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<em>str</em>) – Date to write (hex).</p></li>
+<li><p><strong>start</strong> (<em>int</em><em>, </em><em>optional</em>) – Start byte. Defaults to 0.</p></li>
+<li><p><strong>epc_mask</strong> (<em>str</em><em>, </em><em>optional</em>) – EPC mask filter. Defaults to None.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>RfidReaderException</strong> – If a reader error occurs.</p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>List with handled tags. If a tag was not written
+successfully, the <cite>has_error()</cite> function of the tag will return True.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>List[<a class="reference internal" href="../transponder.html#metratec_rfid.UhfTag" title="metratec_rfid.UhfTag">UhfTag</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="mini-version">
+<span id="dwarfg2miniv2"></span><h2>Mini version<a class="headerlink" href="#mini-version" title="Link to this heading"></a></h2>
+<p>Read modern UHF transponders with up to 9 dBm and 50 cm range.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="metratec_rfid.DwarfG2Miniv2">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">metratec_rfid.</span></span><span class="sig-name descname"><span class="pre">DwarfG2Miniv2</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">instance</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">serial_port</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#metratec_rfid.DwarfG2Miniv2" title="Link to this definition"></a></dt>
+<dd><p>Metratec DwarfG2-Mini v2 class</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="metratec_rfid.DwarfG2Miniv2.set_power">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">set_power</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">power</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#metratec_rfid.DwarfG2Miniv2.set_power" title="Link to this definition"></a></dt>
+<dd><p>Set the antenna power of the reader for all antennas.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>power</strong> (<em>int</em>) – Power value in dBm [0,9].</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>RfidReaderException</strong> – If a reader error occurs.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="xr-version">
+<span id="dwarfg2xrv2"></span><h2>XR version<a class="headerlink" href="#xr-version" title="Link to this heading"></a></h2>
+<p>Read modern UHF transponders with up to 27 dBm and 5 m range.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="metratec_rfid.DwarfG2XRv2">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">metratec_rfid.</span></span><span class="sig-name descname"><span class="pre">DwarfG2XRv2</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">instance</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">serial_port</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#metratec_rfid.DwarfG2XRv2" title="Link to this definition"></a></dt>
+<dd><p>Metratec DwarfG2-XR v2 class</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="metratec_rfid.DwarfG2XRv2.set_power">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">set_power</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">power</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#metratec_rfid.DwarfG2XRv2.set_power" title="Link to this definition"></a></dt>
+<dd><p>Set the antenna power of the reader for all antennas.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>power</strong> (<em>int</em>) – Power value in dBm [0,27].</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>RfidReaderException</strong> – If a reader error occurs.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="qrg2.html" class="btn btn-neutral float-left" title="QRG2 UHF RFID Embedded Module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="plrm.html" class="btn btn-neutral float-right" title="PLRM UHF RFID Reader" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Metratec GmbH.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
