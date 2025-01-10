@@ -1,7 +1,7 @@
 # Inventory performing robotont 
 
-Thesis by Robina Zvirgzdina controling robotont to perform inventory in the library of Univeristy of Tartu using rfid reader, nav2 for navigation and a height adjustment system
-
+Thesis by Robina Zvirgzdina on controling robotont to perform inventory in the Univeristy of Tartu library sing using a rfid reader, ROS2 platform and a height adjustment system. 
+ 
 ## How to get started
 
 ### First mapping needs to be done
@@ -16,7 +16,7 @@ ros2 launch slam_toolbox online_async_launch.py
 
 Save and serialize the map using the slam toolbox plugin 
 
-### Using generated map can navigate
+### Navigate using the generated map
 
 On the robot run:
 
@@ -28,6 +28,13 @@ ros2 launch robina_thesis combined_launch.py
 ros2 launch nav2_bringup navigation_launch.py
 ```
 
+Using SSH connect remotely to the robot: 
+
+```
+ssh -X user@ip
+```
+
+remotely open rviz2 and add map as fixed frame.For displaying map choose topic --> Durability Policy --> Transient local
 At first set initial pose, then can set goal pose or use Nav2 plugin for multiple points.
 
 # Result
