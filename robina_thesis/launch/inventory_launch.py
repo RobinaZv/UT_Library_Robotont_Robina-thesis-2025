@@ -8,7 +8,7 @@ def generate_launch_description():
 
     # Define the script name and its arguments
     script_name = 'inventory_minimal_cmd.py'
-    script_args = ['Plrm', '/dev/ttyUSB1']
+    script_args = ['Plrm', '/dev/ttyUSB0']
 
     # Define the watch command with a 0.1-second interval
     watch_command = f'watch -n 0.1 python {script_name} {" ".join(script_args)}'

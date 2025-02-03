@@ -25,7 +25,7 @@ find_package(tf2_geometry_msgs REQUIRED)
 find_package(ASIO REQUIRED)
 find_package(robotont_msgs REQUIRED)
 find_package(sensor_msgs REQUIRED)
-find_package(robina_thesis REQUIRED)
+#find_package(robina_thesis REQUIRED)
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)

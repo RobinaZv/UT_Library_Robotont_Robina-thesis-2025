@@ -1,46 +1,44 @@
-import os
+import launch
 from launch import LaunchDescription
+from launch.actions import DeclareLaunchArgument, LogInfo, IncludeLaunchDescription
+from launch.substitutions import LaunchConfiguration
 from launch_ros.actions import Node
 
+
 def generate_launch_description():
-    # Path to your map file
-    map_file = os.path.join(os.getcwd(), 's11.yaml')
-
     return LaunchDescription([
-
-        # Map server node
+        # Launch the map_server with the YAML file
         Node(
             package='nav2_map_server',
             executable='map_server',
             name='map_server',
             output='screen',
-            parameters=[{'yaml_filename': map_file}]
+            parameters=[{'yaml_filename': 's11.yaml'}]
         ),
-
-        # Map server lifecycle bringup
+        
+        # Bring up lifecycle for map_server
         Node(
             package='nav2_util',
             executable='lifecycle_bringup',
-            name='lifecycle_bringup_map_server',
+            name='map_server_lifecycle',
             output='screen',
-            arguments=['map_server']
+            parameters=[{'node_name': 'map_server'}]
         ),
-
-        # AMCL node
+        
+        # Launch the amcl
         Node(
             package='nav2_amcl',
             executable='amcl',
             name='amcl',
             output='screen'
         ),
-
-        # AMCL lifecycle bringup
+        
+        # Bring up lifecycle for amcl
         Node(
             package='nav2_util',
             executable='lifecycle_bringup',
-            name='lifecycle_bringup_amcl',
+            name='amcl_lifecycle',
             output='screen',
-            arguments=['amcl']
-        )
+            parameters=[{'node_name': 'amcl'}]
+        ),
     ])
-

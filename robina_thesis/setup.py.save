@@ -1,0 +1,21 @@
+from setuptools import setup
+
+package_name = 'robina_thesis'
+
+setup(
+    name=package_name,
+    version='0.0.1',
+    packages=[package_name],
+    install_requires=['setuptools'],
+    zip_safe=True,
+    maintainer='robina',
+    maintainer_email='your_email@example.com',
+    description='RFID reader node for ROS2',
+    license='MIT',
+    tests_require=['pytest'],
+    entry_points={
+        'console_scripts': [
+            'rfid_reader = robina_thesis.rfid_reader:main',
+        ],
+    },
+)
