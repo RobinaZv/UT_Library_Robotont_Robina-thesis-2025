@@ -32,18 +32,23 @@ class BigNode(Node):
             10
         )
 
+        self.publisher = self.create_publisher(String, '/tag_loc', 10)
+        
         self.subscription  # Prevent unused variable warning
         
         # Initialize variables to store the latest data
-        self.latest_tag = ""
+        self.latest_tags = []
         self.latest_position = (0.0, 0.0, 0.0)
+        self.last_published_data = ""
 
-        # Timer to print information every second
-        self.timer = self.create_timer(1.0, self.print_data)  # 1 second interval
+        # Timer to publish information every second
+        self.timer = self.create_timer(1.0, self.publish_data)  # 1 second interval
 
     def tag_callback(self, msg):
-        # Update the latest tag information
-        self.latest_tag = msg.data
+        # Update the latest tag information, ignoring tags that start with '<'
+        tags = [tag.strip() for tag in msg.data.split(',') if tag.strip() and not tag.strip().startswith('<')]
+        if tags:
+            self.latest_tags = tags
 
     def odom_callback(self, msg):
         # Update the latest position data
@@ -52,9 +57,18 @@ class BigNode(Node):
         z = msg.pose.pose.position.z
         self.latest_position = (x, y, z)
 
-    def print_data(self):
-        # Print both the tag and position data once every second
-        print(f"Tag: {self.latest_tag} | x,y,z={self.latest_position[0]},{self.latest_position[1]},{self.latest_position[2]}")
+    def publish_data(self):
+        if self.latest_tags:
+            tag_loc_msg = String()
+            tag_ids = ','.join(self.latest_tags)  # Join only valid tags
+            new_data = f"{tag_ids} x,y,z={self.latest_position[0]},{self.latest_position[1]},{self.latest_position[2]}"
+            
+            if new_data != self.last_published_data:
+                tag_loc_msg.data = new_data  # Assign data before publishing
+                self.publisher.publish(tag_loc_msg)
+                self.get_logger().info(f"Published: {new_data}")
+                self.last_published_data = new_data
+
 
     def destroy_node(self):
         self.get_logger().info("Shutting down rfid_reader node...")
