@@ -22,6 +22,8 @@ setup(
         'console_scripts': [
         	'rfid_reader = robina_rfid.rfid_reader:main',
         	'big_node = robina_rfid.big_node:main', 
+        	'tag_location_processor = robina_rfid.tag_location_processor:main', 
+        	'marker_publisher = robina_rfid.marker_publisher:main', 
         ],
     },
 )

@@ -49,4 +49,5 @@ def generate_launch_description():
             name='rviz2',
             arguments=['-d', rviz_config_dir],
             output='screen'),
+
 	])

@@ -8,7 +8,7 @@ class RFIDReaderNode(Node):
         super().__init__('rfid_reader_node')
 
         # Serial port configuration
-        self.serial_port = '/dev/ttyUSB2'  # Update with your serial port!!!
+        self.serial_port = '/dev/ttyUSB1'  # Update with your serial port!!!
         self.baud_rate = 115200  # Match the reader's baud rate
 
         # Initialize serial connection
