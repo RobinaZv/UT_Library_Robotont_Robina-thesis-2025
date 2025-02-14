@@ -22,27 +22,35 @@ class MarkerPublisher(Node):
             with open(file_path, 'r') as file:
                 for i, line in enumerate(file.readlines()):
                     parts = line.strip().split()
-                    if len(parts) != 4:
+                    if len(parts) != 7:
                         self.get_logger().warn(f"Skipping invalid line: {line}")
                         continue
-                    tag_name, x, y, z = parts[0], float(parts[1]), float(parts[2]), float(parts[3])
                     
-                    # Create sphere marker
+                    tag_name, med_x, med_y, med_z, furthest_x, furthest_y, furthest_z = (
+                        parts[0], float(parts[1]), float(parts[2]), float(parts[3]), float(parts[4]), float(parts[5]), float(parts[6])
+                    )
+                    
+                    # Calculate scale based on furthest x, y, and z deviations
+                    scale_x = abs(furthest_x - med_x) * 2  # Diameter in x-direction
+                    scale_y = abs(furthest_y - med_y) * 2  # Diameter in y-direction
+                    scale_z = abs(furthest_z - med_z) * 2  # Diameter in z-direction
+                    
+                    # Create ellipsoid marker
                     marker = Marker()
                     marker.header.frame_id = 'map'
-                    marker.type = Marker.SPHERE
+                    marker.type = Marker.SPHERE  # Ellipsoid is a scaled sphere
                     marker.id = i * 2
                     marker.action = Marker.ADD
-                    marker.scale.x = 0.1
-                    marker.scale.y = 0.1
-                    marker.scale.z = 0.1
+                    marker.scale.x = scale_x if scale_x > 0 else 0.1
+                    marker.scale.y = scale_y if scale_y > 0 else 0.1
+                    marker.scale.z = 0.01
                     marker.color.r = 0.0
                     marker.color.g = 1.0
                     marker.color.b = 0.0
-                    marker.color.a = 1.0
-                    marker.pose.position.x = x
-                    marker.pose.position.y = y
-                    marker.pose.position.z = z
+                    marker.color.a = 0.2  # Transparent marker
+                    marker.pose.position.x = med_x
+                    marker.pose.position.y = med_y
+                    marker.pose.position.z = med_z
                     
                     # Create text marker
                     text_marker = Marker()
@@ -50,14 +58,14 @@ class MarkerPublisher(Node):
                     text_marker.type = Marker.TEXT_VIEW_FACING
                     text_marker.id = i * 2 + 1
                     text_marker.action = Marker.ADD
-                    text_marker.scale.z = 0.2  # Text size
+                    text_marker.scale.z = 0.1  # Text size
                     text_marker.color.r = 1.0
                     text_marker.color.g = 1.0
                     text_marker.color.b = 1.0
                     text_marker.color.a = 1.0
-                    text_marker.pose.position.x = x
-                    text_marker.pose.position.y = y
-                    text_marker.pose.position.z = z + 0.2  # Offset above the sphere
+                    text_marker.pose.position.x = med_x
+                    text_marker.pose.position.y = med_y
+                    text_marker.pose.position.z = med_z + 0.02  # Offset above the ellipsoid
                     text_marker.text = tag_name
                     
                     self.markers.append(marker)

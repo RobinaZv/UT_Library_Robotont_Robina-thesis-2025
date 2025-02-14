@@ -16,7 +16,7 @@ class TagLocationProcessor(Node):
         )
         
         self.tag_positions = {}  # Dictionary to store tag locations
-
+        
         # Timer to save median values to file every 5 seconds
         self.median_timer = self.create_timer(5.0, self.save_medians_to_file)
 
@@ -28,14 +28,14 @@ class TagLocationProcessor(Node):
         
         # Extract tag IDs and coordinates
         try:
-            tag_part, coords_part = data.rsplit(" x,y,z=", 1)
-            x, y, z = map(float, coords_part.split(","))
+            parts = data.split()
+            tags = parts[:-3]  # All except last three are tag IDs
+            x, y, z = map(float, parts[-3:])  # Last three are x, y, z
         except ValueError:
             self.get_logger().warn(f"Invalid message format: {data}")
             return
 
         # Store each tag's position history separately
-        tags = [tag.strip() for tag in tag_part.split(",")]
         for tag in tags:
             if tag not in self.tag_positions:
                 self.tag_positions[tag] = []
@@ -43,24 +43,31 @@ class TagLocationProcessor(Node):
 
         self.get_logger().info(f"Updated positions for {tags}")
 
-    def calculate_medians(self):
-        """ Compute the median position for each tag separately. """
-        median_positions = {}
+    def calculate_medians_and_extremes(self):
+        """ Compute the median position and furthest x, y from median for each tag. """
+        results = {}
         for tag, positions in self.tag_positions.items():
             positions_np = np.array(positions)
             median_x = np.median(positions_np[:, 0])
             median_y = np.median(positions_np[:, 1])
             median_z = np.median(positions_np[:, 2])
-            median_positions[tag] = (median_x, median_y, median_z)
-        return median_positions
+            
+            # Find furthest x and y from median
+            furthest_x = positions_np[np.argmax(np.abs(positions_np[:, 0] - median_x)), 0]
+            furthest_y = positions_np[np.argmax(np.abs(positions_np[:, 1] - median_y)), 1]
+
+            
+            results[tag] = (median_x, median_y, median_z, furthest_x, furthest_y)
+        return results
 
     def save_medians_to_file(self):
-        """ Save the latest median positions to a file, ensuring each tag is on a separate line. """
-        median_positions = self.calculate_medians()
+        """ Save the latest median positions and extreme values to a file. """
+        results = self.calculate_medians_and_extremes()
         with open("tag_medians.txt", "w") as f:
-            for tag, (x, y, z) in median_positions.items():
-                f.write(f"{tag} {x} {y} {z}\n")
-        self.get_logger().info("Median values saved to tag_medians.txt")
+            for tag, (med_x, med_y, med_z, furthest_x, furthest_y) in results.items():
+                f.write(f"{tag} {med_x} {med_y} {med_z} {furthest_x} {furthest_y}\n")
+        self.get_logger().info("Median values and extremes saved to tag_medians.txt")
+
 
 def main(args=None):
     rclpy.init(args=args)
