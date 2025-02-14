@@ -21,7 +21,7 @@ class BigNode(Node):
                                              stdout=subprocess.PIPE, 
                                              stderr=subprocess.PIPE, 
                                              text=True)
-                                             
+                                              
         time.sleep(2)  # Give some time for the rfid_reader node to start
 
         self.subscription = self.create_subscription(
@@ -67,16 +67,15 @@ class BigNode(Node):
     def publish_data(self):
         if self.latest_tags:
             tag_loc_msg = String()
-            tag_ids = ','.join(self.latest_tags)  # Join only valid tags
-            new_data = f"{tag_ids} x,y,z={self.latest_position[0]},{self.latest_position[1]},{self.latest_position[2]}"
+            tag_ids = ' '.join(self.latest_tags)  # Join tags with spaces
+            position_str = f"{self.latest_position[0]} {self.latest_position[1]} {self.latest_position[2]}"
+            new_data = f"{tag_ids} {position_str}"
             
             if new_data != self.last_published_data:
                 tag_loc_msg.data = new_data  # Assign data before publishing
                 self.publisher.publish(tag_loc_msg)
-                #self.get_logger().info(f"Published: {new_data}")
                 print(f"{new_data}")
                 self.last_published_data = new_data
-
 
     def destroy_node(self):
         self.get_logger().info("Shutting down rfid_reader node...")
