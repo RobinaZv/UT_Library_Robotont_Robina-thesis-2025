@@ -19,7 +19,7 @@ class RFIDReaderNode(Node):
         self.create_timer(0.1, self.read_tag)
         
         self.send_at_command("AT+ANT=1")
-        self.send_at_command("AT+PWR=32,0,0,0")
+        self.send_at_command("AT+PWR=27,0,0,0")
         
         self.tag_buffer = set()
         self.read_count = 0
