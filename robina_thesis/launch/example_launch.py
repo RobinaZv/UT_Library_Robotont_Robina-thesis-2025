@@ -22,7 +22,17 @@ def generate_launch_description():
     	),
     	launch_arguments={}.items()
 	)
+	
+	
+	filter_launch = IncludeLaunchDescription(
+    	PythonLaunchDescriptionSource(
+        	['/home/peko/colcon_ws/src/laser_filters/examples/box_filter_example.launch.py']
+    	),
+    	launch_arguments={}.items()
+	)
 
+
+    
 	static_transform2 = Node(
     	package='tf2_ros',
     	executable='static_transform_publisher',
@@ -42,7 +52,7 @@ def generate_launch_description():
     	sllidar_launch,
     	static_transform2,
     	description_launch,
-    	
+    	filter_launch,
         Node(
             package='rviz2',
             executable='rviz2',

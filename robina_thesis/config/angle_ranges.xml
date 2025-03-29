@@ -1,0 +1,6 @@
+<filter_chain>
+  <filter type="laser_filters/AngleRangeFilter">
+    <param name="angle_min" value="-1.5708"/>  <!-- -90 degrees -->
+    <param name="angle_max" value="1.5708"/>   <!-- +90 degrees -->
+  </filter>
+</filter_chain>

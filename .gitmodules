@@ -10,3 +10,6 @@
 [submodule "sllidar_ros2"]
 	path = sllidar_ros2
 	url = https://github.com/Slamtec/sllidar_ros2.git
+[submodule "laser_filters"]
+	path = laser_filters
+	url = https://github.com/ros-perception/laser_filters.git
