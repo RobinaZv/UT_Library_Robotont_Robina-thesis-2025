@@ -24,6 +24,8 @@ setup(
         	'big_node = robina_rfid.big_node:main', 
         	'tag_location_processor = robina_rfid.tag_location_processor:main', 
         	'marker_publisher = robina_rfid.marker_publisher:main', 
+        	'step_publisher = robina_rfid.step_publisher:main',
+        	'height_changer_node = robina_rfid.height_changer_node:main',
         ],
     },
 )
