@@ -4,7 +4,7 @@ from launch_ros.actions import Node
 
 def generate_launch_description():
     # Path to your map file
-    map_file = os.path.join(os.getcwd(), 's20.yaml')
+    map_file = os.path.join(os.getcwd(), 's41.yaml')
 
     return LaunchDescription([
 
