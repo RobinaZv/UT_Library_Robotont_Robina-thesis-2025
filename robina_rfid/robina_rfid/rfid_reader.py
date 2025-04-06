@@ -6,7 +6,7 @@ import serial
 class RFIDReaderNode(Node):
     def __init__(self):
         super().__init__('rfid_reader_node')
-        self.serial_port = '/dev/ttyUSB1'
+        self.serial_port = '/dev/ttyUSB2'
         self.baud_rate = 115200
         
         try:
