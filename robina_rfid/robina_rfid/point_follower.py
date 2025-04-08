@@ -1,8 +1,9 @@
 import rclpy
 from rclpy.node import Node
-from geometry_msgs.msg import PointStamped, PoseStamped
+from geometry_msgs.msg import PointStamped
 from nav2_msgs.action import NavigateToPose
 from rclpy.action import ActionClient
+from std_msgs.msg import Int32  # ✅ Using Int32 instead of String
 import time
 import threading
 
@@ -19,8 +20,9 @@ class PointFollower(Node):
         )
 
         self.action_client = ActionClient(self, NavigateToPose, '/navigate_to_pose')
+        self.steps_publisher = self.create_publisher(Int32, '/steps', 10)  # ✅ Int32
+
         self.points = []
-        self.current_index = 0
         self.navigation_thread = None
         self.get_logger().info('Point Follower Node Initialized')
 
@@ -34,18 +36,23 @@ class PointFollower(Node):
             self.navigation_thread.start()
 
     def navigate_loop(self):
-        while rclpy.ok():
-            for idx in [0, 1, 0]:  # Go to point 1, then 2, then back to 1
-                x, y = self.points[idx]
-                self.send_goal(x, y)
+        for idx in [0, 1, 0]:  # Go to point 1, then 2, then back to 1
+            x, y = self.points[idx]
+            self.send_goal(x, y)
 
-                self.get_logger().info(f"Waiting 10 seconds at point {idx + 1}")
-                for i in range(10, 0, -1):
-                    self.get_logger().info(f'{i}...')
-                    time.sleep(1)
+            # ✅ Publish -20000 to /steps as Int32
+            msg = Int32()
+            msg.data = -20000
+            self.steps_publisher.publish(msg)
+            self.get_logger().info(f"Published steps: {msg.data}")
 
-            self.get_logger().info("Navigation cycle complete.")
-            break  # End loop after one full cycle
+            # ✅ Countdown 10 seconds
+            self.get_logger().info(f"Waiting 10 seconds at point {idx + 1}")
+            for i in range(10, 0, -1):
+                self.get_logger().info(f'{i}...')
+                time.sleep(1)
+
+        self.get_logger().info("Navigation cycle complete.")
 
     def send_goal(self, x, y):
         self.get_logger().info(f'Sending goal to ({x}, {y})')
@@ -59,10 +66,9 @@ class PointFollower(Node):
 
         self.action_client.wait_for_server()
         future = self.action_client.send_goal_async(goal_msg)
-
         rclpy.spin_until_future_complete(self, future)
-        goal_handle = future.result()
 
+        goal_handle = future.result()
         if not goal_handle.accepted:
             self.get_logger().warn('Goal rejected')
             return

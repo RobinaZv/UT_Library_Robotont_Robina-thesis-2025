@@ -16,7 +16,7 @@ class HeightChangerNode(Node):
 
 
        # Adjust your serial port if necessary
-       self.serial_port = serial.Serial('/dev/ttyUSB1', 9600, timeout=1)
+       self.serial_port = serial.Serial('/dev/ttyUSB2', 9600, timeout=1)
 
 
    def steps_callback(self, msg):
