@@ -6,7 +6,7 @@ import serial
 class RFIDReaderNode(Node):
     def __init__(self):
         super().__init__('rfid_reader_node')
-        self.serial_port = '/dev/ttyUSB2'
+        self.serial_port = '/dev/ttyUSB1'
         self.baud_rate = 115200
         
         try:
@@ -42,6 +42,7 @@ class RFIDReaderNode(Node):
         if self.read_count >= 10:
             if self.tag_buffer:
                 self.publisher_.publish(String(data=' '.join(self.tag_buffer)))
+            # Only clear the buffer and reset count — no else branch = no publishing
             self.tag_buffer.clear()
             self.read_count = 0
 

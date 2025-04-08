@@ -26,6 +26,7 @@ setup(
         	'marker_publisher = robina_rfid.marker_publisher:main', 
         	'step_publisher = robina_rfid.step_publisher:main',
         	'height_changer_node = robina_rfid.height_changer_node:main',
+		'point_follower = robina_rfid.point_follower:main',
         ],
     },
 )
