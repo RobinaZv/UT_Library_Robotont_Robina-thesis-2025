@@ -3,7 +3,7 @@ from rclpy.node import Node
 from geometry_msgs.msg import PointStamped
 from nav2_msgs.action import NavigateToPose
 from rclpy.action import ActionClient
-from std_msgs.msg import Int32  # ✅ Using Int32 instead of String
+from std_msgs.msg import Int32, Float32  # Added Float32 for z_height
 import time
 import threading
 
@@ -21,6 +21,7 @@ class PointFollower(Node):
 
         self.action_client = ActionClient(self, NavigateToPose, '/navigate_to_pose')
         self.steps_publisher = self.create_publisher(Int32, '/steps', 10)  # ✅ Int32
+        self.z_height_publisher = self.create_publisher(Float32, '/z_height', 10)  # Publisher for z_height
 
         self.points = []
         self.navigation_thread = None
@@ -42,15 +43,21 @@ class PointFollower(Node):
 
             # ✅ Publish -20000 to /steps as Int32
             msg = Int32()
-            msg.data = -20000
+            msg.data = -4000
             self.steps_publisher.publish(msg)
             self.get_logger().info(f"Published steps: {msg.data}")
 
             # ✅ Countdown 10 seconds
             self.get_logger().info(f"Waiting 10 seconds at point {idx + 1}")
-            for i in range(10, 0, -1):
+            for i in range(60, 0, -1):
                 self.get_logger().info(f'{i}...')
                 time.sleep(1)
+
+            # Publish z_height when the robot reaches the first or second point
+            if idx == 0:  # Reached first point
+                self.publish_z_height(1.5)
+            elif idx == 1:  # Reached second point
+                self.publish_z_height(1.0)
 
         self.get_logger().info("Navigation cycle complete.")
 
@@ -78,6 +85,13 @@ class PointFollower(Node):
         rclpy.spin_until_future_complete(self, result_future)
 
         self.get_logger().info('Goal reached.')
+
+    def publish_z_height(self, height):
+        """ Publish the z height to the /z_height topic. """
+        msg = Float32()
+        msg.data = height
+        self.z_height_publisher.publish(msg)
+        self.get_logger().info(f"Published z_height: {height}")
 
 
 def main(args=None):
