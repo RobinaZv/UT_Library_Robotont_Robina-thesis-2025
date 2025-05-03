@@ -10,8 +10,7 @@ class StepPublisherNode(Node):
 
 
        # Hardcoded step value (100 steps)
-       self.steps = 10000
-
+       self.steps = 100
 
    def publish_steps(self):
        msg = Int32()
