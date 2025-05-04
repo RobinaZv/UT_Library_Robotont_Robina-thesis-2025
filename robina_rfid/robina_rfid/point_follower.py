@@ -26,9 +26,8 @@ class PointFollower(Node):
         self.points = []
         self.navigation_thread = None
 
-        # Immediately publish z_height = 1.5 on startup
-        self.publish_z_height(1.5)
-        self.get_logger().info('Initial z_height of 1.5 published')
+        self.publish_z_height(1.4)
+        self.get_logger().info('Initial z_height of 1.4 published')
         self.get_logger().info('Point Follower Node Initialized')
 
     def point_callback(self, msg):
@@ -36,34 +35,31 @@ class PointFollower(Node):
         self.points.append((point.x, point.y))
         self.get_logger().info(f'Point received: ({point.x}, {point.y})')
 
-        if len(self.points) == 2 and self.navigation_thread is None:
+        if len(self.points) == 4 and self.navigation_thread is None:
             self.navigation_thread = threading.Thread(target=self.navigate_loop)
             self.navigation_thread.start()
 
     def navigate_loop(self):
-        navigation_order = [0, 1, 0, 1]  # Visit: first, second, first, second again
+        # Go from point 0 → 1 → 2 → 3
+        for i in range(4):
+            self.go_and_wait(i, wait_time=5)
 
-        for step_idx, point_idx in enumerate(navigation_order):
-            x, y = self.points[point_idx]
-            self.send_goal(x, y)
+        # At point 4 (index 3), do long wait, spin stepper, lower z
+        self.get_logger().info("At 4th point: initiating 140 second wait with stepper activity...")
+        self.publish_steps(-50000)
+        self.wait_with_log(140)
+        self.publish_z_height(1.0)
 
-            if step_idx == 0:  # First visit to point 1
-                self.publish_steps(-400)
-                self.wait_with_log(5)
-                self.publish_z_height(1.5)
+        # Go back: 2 → 1 → 0
+        for i in reversed(range(3)):
+            self.go_and_wait(i, wait_time=5)
 
-            elif step_idx == 1:  # First visit to point 2
-                self.publish_steps(-60000)
-                self.wait_with_log(100)
-                self.publish_z_height(1.0)
+        self.get_logger().info("Returned to point 1. Cycle complete.")
 
-            elif step_idx == 2:  # Second visit to point 1
-                self.publish_steps(-60000)
-                self.wait_with_log(100)
-                self.publish_z_height(0.5)
-
-            elif step_idx == 3:  # Final visit to point 2
-                self.get_logger().info("Final point reached. Cycle complete.")
+    def go_and_wait(self, index, wait_time):
+        x, y = self.points[index]
+        self.send_goal(x, y)
+        self.wait_with_log(wait_time)
 
     def send_goal(self, x, y):
         self.get_logger().info(f'Sending goal to ({x}, {y})')
