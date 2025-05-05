@@ -47,7 +47,7 @@ class PointFollower(Node):
         # At point 4 (index 3), do long wait, spin stepper, lower z
         self.get_logger().info("At 4th point: initiating 140 second wait with stepper activity...")
         self.publish_steps(-50000)
-        self.wait_with_log(140)
+        self.wait_with_log(110)
         self.publish_z_height(1.0)
 
         # Go back: 2 → 1 → 0
