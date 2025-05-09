@@ -42,19 +42,26 @@ class PointFollower(Node):
     def navigate_loop(self):
         # Go from point 0 → 1 → 2 → 3
         for i in range(4):
+            self.go_and_wait(i, wait_time=3)
+
+        # At point 4 (index 3), wait 4 seconds
+        self.get_logger().info("At point 4. Waiting 4 seconds before returning to point 1...")
+        self.wait_with_log(4)
+
+        # Go back to point 1 (index 0) and wait for it to reach
+        self.send_goal(*self.points[0])
+
+        # At point 1 (second visit): spin stepper, wait 100 seconds, lower Z
+        self.get_logger().info("At point 1 again. Spinning stepper and waiting 100 seconds before lowering Z...")
+        self.publish_steps(-50000)  # Send stepper motor command first
+        self.wait_with_log(100)     # Wait while the stepper motor is spinning
+        self.publish_z_height(1.0)  # Then lower Z height
+
+        # Continue: point 2 → 3 → 4
+        for i in range(1, 4):
             self.go_and_wait(i, wait_time=5)
 
-        # At point 4 (index 3), do long wait, spin stepper, lower z
-        self.get_logger().info("At 4th point: initiating 140 second wait with stepper activity...")
-        self.publish_steps(-50000)
-        self.wait_with_log(110)
-        self.publish_z_height(1.0)
-
-        # Go back: 2 → 1 → 0
-        for i in reversed(range(3)):
-            self.go_and_wait(i, wait_time=5)
-
-        self.get_logger().info("Returned to point 1. Cycle complete.")
+        self.get_logger().info("Arrived at point 4. Stopping.")
 
     def go_and_wait(self, index, wait_time):
         x, y = self.points[index]

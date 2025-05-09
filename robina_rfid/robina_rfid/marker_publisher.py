@@ -12,7 +12,7 @@ class MarkerPublisher(Node):
         
         # Path to tag_medians.txt in colcon_ws
         workspace_path = os.path.expanduser('~/colcon_ws')
-        file_path = os.path.join(workspace_path, 'tag_medians2.txt')
+        file_path = os.path.join(workspace_path, 'tag_medians.txt')
         
         self.load_markers(file_path)
         self.timer = self.create_timer(0.5, self.publish_markers)
