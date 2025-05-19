@@ -6,27 +6,21 @@ Thesis by Robina Zvirgzdina on controling robotont to perform inventory in the U
 
 ### Setting up
 
-To get the IP on the robot run 
+To get the IP on the robot run: 
 
 ```
 ifconfig
 ```
 
-then for visualizing purpose remotely run 
+Then for visualizing purpose remotely run:
 
 ```
 ssh -X user@IP
 ```
 
-and for other code run:
-
-```
-ssh user@IP
-```
+For running the rest of the code, either a simple ssh connection can be formed, or VScode remote connection can be used.
 
 ### Mapping 
-
-Run the following commands and using keyboard navigate through the area to generate a map:
 
 in the terminal for visualization from the colcon_ws run:
 
@@ -40,19 +34,18 @@ ros2 launch robina_thesis mapping_launch.py
 
 ros2 run teleop_twist_keyboard teleop_twist_keyboard
 ```
-
-Save and serialize the map using the slam toolbox plugin under the name "map"
+Using keyboard navigate through the area to generate a map. Save and serialize the map using the slam toolbox plugin under the name "map"
 
 ### Navigate using the generated map
 
-Sometimes the ports differ from the ones shown in the code. To ckeck this run 
+Sometimes the ports differ from the ones shown in the code. To ckeck this run: 
 ```
 ls /dev/tty*
 ```
-to show which device corresponds to which port. Then change the ports in hieght_adjuster_node.py and rfid_reader_node.py
+to show which device corresponds to which port. Then change the ports in hieght_adjuster_node.py and rfid_reader_node.py to the correct ports.
 
 
-or Disconnect everything and connect in the following order
+Another easier solution is to disconnect everything and connect in the following order
 1. lidar
 2. RFID reader
 3. Stepper motor
@@ -64,7 +57,7 @@ ros2 launch robina_thesis all_systems_launch.py
 ros2 run robina_rfid big_node
 ```
 
-and in the visualization terminal run
+and in the visualization terminal run:
 ```
 rviz2 navrviz.rviz
 ```
@@ -74,7 +67,7 @@ Give 4 point along the shelf using clicked point in RViz2.
 
 # Result
 
-After generating map, running the navigation and giving the navigation points, the robot will drive trhought the points and on its way scan the RFID tags. It will then create a heat-map for each of the tags to display their most probable location. It is possible to also later visualize these tags on the map using:
+After generating map, running the navigation and giving the navigation points, the robot will drive trhought the points and on its way scan the RFID tags. It will then create a heat-map for each of the tags to display their most probable location and height. It is possible to also later visualize these tags on the map using:
 
 ```
 ros2 run robina_rfid marker_publisher
